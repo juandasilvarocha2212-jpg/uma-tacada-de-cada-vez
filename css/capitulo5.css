@@ -1,0 +1,1322 @@
+/* =====================================================
+   CAPÍTULO V
+   CINEMA / HOMEM-ARANHA
+===================================================== */
+
+#capitulo5 {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 65;
+
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
+    overflow-y: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(1.025);
+
+    background:
+        radial-gradient(
+            circle at 50% 32%,
+            rgba(80, 38, 125, 0.19),
+            rgba(8, 6, 14, 0.96) 67%
+        );
+
+    transition:
+        opacity 0.9s ease,
+        transform 1s ease,
+        visibility 0.9s ease;
+}
+
+
+#capitulo5.ativo {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+}
+
+
+#capitulo5.saindo {
+    opacity: 0;
+
+    transform:
+        scale(0.98);
+}
+
+
+/* =====================================================
+   FUNDO
+===================================================== */
+
+.cap5-fundo {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 22%,
+            rgba(135, 49, 190, 0.08),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 84% 73%,
+            rgba(88, 36, 142, 0.09),
+            transparent 38%
+        );
+}
+
+
+.cap5-fundo::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: -30%;
+
+    width: 85vw;
+    height: 90vh;
+
+    transform:
+        translateX(-50%);
+
+    clip-path:
+        polygon(
+            43% 0,
+            57% 0,
+            100% 100%,
+            0 100%
+        );
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(225, 205, 255, 0.055),
+            transparent
+        );
+
+    opacity: 0.8;
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.cap5-conteudo {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(
+            91vw,
+            520px
+        );
+
+    min-height: 100%;
+
+    padding:
+        max(
+            48px,
+            env(safe-area-inset-top)
+        )
+        0
+        max(
+            34px,
+            env(safe-area-inset-bottom)
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   NÚMERO DO CAPÍTULO
+===================================================== */
+
+.cap5-numero {
+    margin-bottom: 9px;
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.42em;
+
+    color: #b49ac7;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+#cap5Titulo {
+    max-width: 450px;
+
+    margin-bottom: 17px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            2.6rem,
+            11vw,
+            4rem
+        );
+
+    font-weight: 500;
+
+    line-height: 0.96;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 30px
+        rgba(166, 92, 220, 0.19);
+}
+
+
+/* =====================================================
+   ÁREA VISUAL
+===================================================== */
+
+.cap5-visual {
+    width: 100%;
+
+    min-height: 150px;
+
+    height: auto;
+
+    overflow: visible;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cap5-visual.entrando {
+    animation:
+        cap5Entrada
+        0.8s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.cap5-texto {
+    max-width: 440px;
+
+    min-height: 95px;
+
+    margin:
+        17px auto 20px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            1.23rem,
+            5.6vw,
+            1.62rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1.38;
+
+    color: #f2ebf6;
+
+    transition:
+        opacity 0.28s ease,
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+.cap5-texto strong {
+    color: #d8b5f7;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 18px
+        rgba(170, 102, 224, 0.23);
+}
+
+
+.cap5-texto.trocando {
+    opacity: 0;
+
+    transform:
+        translateY(8px);
+
+    filter:
+        blur(2px);
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.btn-cap5 {
+    min-height: 46px;
+
+    margin-top: 3px;
+
+    padding:
+        13px 24px;
+
+    border:
+        1px solid
+        rgba(179, 126, 218, 0.44);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(89, 39, 125, 0.29),
+            rgba(36, 19, 49, 0.28)
+        );
+
+    color: #f2edf5;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 0.69rem;
+
+    letter-spacing: 0.13em;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.btn-cap5:active {
+    transform:
+        scale(0.97);
+}
+
+
+.btn-cap5.escondido {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   BOLA 5
+===================================================== */
+
+.cap5-orbita {
+    position: relative;
+
+    width: 135px;
+    height: 135px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(203, 154, 230, 0.15);
+
+    border-radius: 50%;
+
+    animation:
+        cap5Orbita
+        12s
+        linear
+        infinite;
+}
+
+
+.cap5-orbita::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 20px;
+
+    border:
+        1px solid
+        rgba(200, 158, 228, 0.10);
+
+    border-radius: 50%;
+}
+
+
+.cap5-bola {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 31% 25%,
+            #ff9b74,
+            #e26b3a 47%,
+            #70331f
+        );
+
+    box-shadow:
+        inset -8px -8px 12px
+        rgba(0, 0, 0, 0.28),
+
+        inset 5px 4px 8px
+        rgba(255, 255, 255, 0.22),
+
+        0 0 30px
+        rgba(229, 105, 61, 0.18);
+}
+
+
+.cap5-bola span {
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #f8f7f4;
+
+    color: #111;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+}
+
+
+#bola5.virando-memoria-5 {
+    animation:
+        bolaMemoria5
+        0.75s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+/* =====================================================
+   INGRESSO
+===================================================== */
+
+.cap5-ingresso {
+    position: relative;
+
+    width:
+        min(
+            88%,
+            330px
+        );
+
+    min-height: 125px;
+
+    padding:
+        24px 20px;
+
+    border:
+        1px solid
+        rgba(197, 153, 226, 0.15);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(39, 23, 49, 0.78),
+            rgba(17, 13, 23, 0.84)
+        );
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.28);
+}
+
+
+.cap5-ingresso::before,
+.cap5-ingresso::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 20px;
+    height: 20px;
+
+    transform:
+        translateY(-50%);
+
+    border-radius: 50%;
+
+    background: #08060e;
+}
+
+
+.cap5-ingresso::before {
+    left: -10px;
+}
+
+
+.cap5-ingresso::after {
+    right: -10px;
+}
+
+
+.cap5-ingresso small {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 0.54rem;
+
+    letter-spacing: 0.26em;
+
+    color: #a995b7;
+}
+
+
+.cap5-ingresso strong {
+    display: block;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 1.9rem;
+
+    font-weight: 500;
+
+    color: #efe4f5;
+}
+
+
+.cap5-ingresso span {
+    display: block;
+
+    margin-top: 9px;
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.15em;
+
+    color: #ad99ba;
+}
+
+
+/* =====================================================
+   CINEMA
+===================================================== */
+
+.cap5-cinema {
+    position: relative;
+
+    width:
+        min(
+            92%,
+            370px
+        );
+
+    height: 185px;
+
+    overflow: hidden;
+
+    border-radius:
+        8px 8px 20px 20px;
+
+    border:
+        1px solid
+        rgba(205, 178, 225, 0.14);
+
+    background: #050507;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.45);
+}
+
+
+.cap5-tela {
+    position: absolute;
+
+    left: 50%;
+    top: 15px;
+
+    width: 84%;
+    height: 92px;
+
+    transform:
+        translateX(-50%);
+
+    overflow: hidden;
+
+    border-radius: 3px;
+
+    background:
+        radial-gradient(
+            circle at 52% 45%,
+            rgba(156, 105, 201, 0.32),
+            rgba(54, 28, 78, 0.7) 42%,
+            #0b0910
+        );
+
+    box-shadow:
+        0 0 35px
+        rgba(180, 135, 224, 0.11);
+}
+
+
+.cap5-tela::before {
+    content: "";
+
+    position: absolute;
+
+    left: -15%;
+    top: -40%;
+
+    width: 130%;
+    height: 140%;
+
+    transform:
+        rotate(-7deg);
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.08),
+            transparent 65%
+        );
+
+    animation:
+        cap5Projetor
+        5s
+        ease-in-out
+        infinite;
+}
+
+
+.cap5-tela span {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.23em;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.7
+        );
+}
+
+
+.cap5-poltrona {
+    position: absolute;
+
+    bottom: 12px;
+
+    width: 55px;
+    height: 47px;
+
+    border-radius:
+        23px 23px 8px 8px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #221827,
+            #100d14
+        );
+}
+
+
+.cap5-poltrona.esquerda {
+    left: 31%;
+}
+
+
+.cap5-poltrona.direita {
+    right: 31%;
+}
+
+
+/* =====================================================
+   GOSTAR DAS COISAS JUNTOS
+===================================================== */
+
+.cap5-juntos {
+    position: relative;
+
+    width:
+        min(
+            90%,
+            340px
+        );
+
+    height: 125px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.cap5-circulo {
+    position: relative;
+
+    width: 82px;
+    height: 82px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(204, 160, 231, 0.18);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(128, 70, 165, 0.18),
+            rgba(23, 14, 31, 0.56)
+        );
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.12em;
+
+    color: #cdbed6;
+}
+
+
+.cap5-juntos-luz {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 44px;
+    height: 1px;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #d8b5f7,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(209, 166, 241, 0.5);
+}
+
+
+/* =====================================================
+   FOTO DO CINEMA
+
+   SEM aspect-ratio forçado.
+
+   A própria imagem define
+   sua proporção real.
+===================================================== */
+
+.cap5-foto {
+    position: relative;
+
+    display: block;
+
+    width:
+        min(
+            68vw,
+            290px
+        );
+
+    height: auto;
+
+    margin:
+        0 auto;
+
+    padding: 7px;
+
+    flex-shrink: 0;
+
+    overflow: visible;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    border:
+        1px solid
+        rgba(196, 151, 224, 0.20);
+
+    border-radius: 18px;
+
+    background:
+        rgba(19, 13, 25, 0.80);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.38);
+}
+
+
+/* =====================================================
+   IMAGEM
+===================================================== */
+
+.cap5-foto img {
+    position: static;
+
+    display: block !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    min-width: 0;
+
+    max-width: 100% !important;
+
+    min-height: 0;
+
+    max-height: none !important;
+
+    margin: 0;
+
+    padding: 0;
+
+    opacity: 1 !important;
+
+    visibility: visible !important;
+
+    transform: none !important;
+
+    filter: none !important;
+
+    object-fit: contain !important;
+
+    object-position: center;
+
+    border-radius: 12px;
+}
+
+
+/* =====================================================
+   LEGENDA
+===================================================== */
+
+.cap5-foto figcaption {
+    display: block;
+
+    padding:
+        10px 6px 3px;
+
+    font-size: 0.52rem;
+
+    letter-spacing: 0.14em;
+
+    color: #aa99b5;
+}
+
+
+/* =====================================================
+   SEGUNDA APARIÇÃO DA FOTO
+
+   MESMA FOTO
+   SOMENTE MENOR
+===================================================== */
+
+.cap5-foto-menor {
+    display: block;
+
+    width:
+        min(
+            48vw,
+            205px
+        );
+
+    height: auto;
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.cap5-foto-menor img {
+    display: block !important;
+
+    width: 100% !important;
+
+    height: auto !important;
+
+    max-height: none !important;
+
+    opacity: 1 !important;
+
+    visibility: visible !important;
+
+    transform: none !important;
+
+    filter: none !important;
+
+    object-fit: contain !important;
+}
+
+
+/* =====================================================
+   MEMÓRIA
+===================================================== */
+
+.cap5-memoria {
+    position: relative;
+
+    width: 145px;
+    height: 145px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cap5-memoria::before,
+.cap5-memoria::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(201, 153, 231, 0.15);
+
+    animation:
+        cap5MemoriaPulso
+        3s
+        ease-out
+        infinite;
+}
+
+
+.cap5-memoria::before {
+    width: 68px;
+    height: 68px;
+}
+
+
+.cap5-memoria::after {
+    width: 110px;
+    height: 110px;
+
+    animation-delay: 0.7s;
+}
+
+
+.cap5-memoria-centro {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #d8b5f7;
+
+    box-shadow:
+        0 0 28px
+        rgba(212, 173, 243, 0.78);
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.cap5-final {
+    width: 145px;
+    height: 145px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(206, 163, 230, 0.16);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 45px
+        rgba(151, 82, 194, 0.09);
+}
+
+
+.cap5-final span {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 2rem;
+
+    color: #ddc4ef;
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes cap5Entrada {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(14px)
+            scale(0.96);
+
+        filter:
+            blur(4px);
+
+    }
+
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
+
+    }
+}
+
+
+@keyframes cap5Orbita {
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+}
+
+
+@keyframes cap5Projetor {
+
+    0%,
+    100% {
+
+        transform:
+            translateX(-15%)
+            rotate(-7deg);
+
+    }
+
+
+    50% {
+
+        transform:
+            translateX(15%)
+            rotate(-7deg);
+
+    }
+}
+
+
+@keyframes cap5MemoriaPulso {
+
+    from {
+
+        transform:
+            scale(0.65);
+
+        opacity: 0.8;
+
+    }
+
+
+    to {
+
+        transform:
+            scale(1.35);
+
+        opacity: 0;
+
+    }
+}
+
+
+@keyframes bolaMemoria5 {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        filter:
+            brightness(1);
+
+    }
+
+
+    60% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.65);
+
+        filter:
+            brightness(1.8)
+            drop-shadow(
+                0 0 25px
+                rgba(230, 120, 73, 0.60)
+            );
+
+    }
+
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.1);
+
+        opacity: 0;
+
+        filter:
+            blur(5px)
+            brightness(2);
+
+    }
+}
+
+
+/* =====================================================
+   CELULARES MAIS BAIXOS
+===================================================== */
+
+@media
+(max-height: 700px)
+and
+(max-width: 767px) {
+
+    .cap5-conteudo {
+
+        justify-content:
+            flex-start;
+
+        padding-top:
+            30px;
+
+    }
+
+
+    #cap5Titulo {
+
+        font-size:
+            2.2rem;
+
+    }
+
+
+    .cap5-visual {
+
+        min-height:
+            105px;
+
+        height:
+            auto;
+
+        overflow:
+            visible;
+
+    }
+
+
+    .cap5-texto {
+
+        min-height:
+            70px;
+
+        margin:
+            11px 0 14px;
+
+        font-size:
+            1.06rem;
+
+    }
+
+
+    .cap5-cinema {
+
+        height:
+            130px;
+
+    }
+
+
+    .cap5-tela {
+
+        height:
+            68px;
+
+    }
+
+
+    .cap5-foto {
+
+        width:
+            min(
+                52vw,
+                205px
+            );
+
+    }
+
+
+    .cap5-foto-menor {
+
+        width:
+            min(
+                38vw,
+                155px
+            );
+
+    }
+}
+
+
+/* =====================================================
+   CELULARES ESTREITOS
+===================================================== */
+
+@media
+(max-width: 390px) {
+
+    .cap5-foto {
+
+        width:
+            min(
+                62vw,
+                240px
+            );
+
+    }
+
+
+    .cap5-foto-menor {
+
+        width:
+            min(
+                44vw,
+                170px
+            );
+
+    }
+}

@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; min-height: 100%; }
+html { background: #05030a; }
+
+:root {
+    --fundo: #05030a;
+    --roxo: #9b5de5;
+    --lilas: #d7b8ff;
+    --texto: #ffffff;
+    --texto-suave: #d8cce3;
+}
+
+body {
+    background: var(--fundo);
+    color: var(--texto);
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#inicio {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    min-height: 560px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 45%, rgba(105, 38, 167, 0.18), #05030a 72%);
+}
+
+#app { position: absolute; inset: 0; }
+
+.estrelas {
+    position: absolute;
+    inset: -40px;
+    opacity: 0.85;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle at 5% 12%, white 0 1px, transparent 1.7px),
+        radial-gradient(circle at 13% 67%, white 0 0.8px, transparent 1.5px),
+        radial-gradient(circle at 19% 31%, #dcbaff 0 1px, transparent 1.7px),
+        radial-gradient(circle at 27% 82%, white 0 0.7px, transparent 1.5px),
+        radial-gradient(circle at 34% 17%, #e8dcff 0 1.2px, transparent 2px),
+        radial-gradient(circle at 41% 53%, white 0 0.7px, transparent 1.5px),
+        radial-gradient(circle at 48% 9%, #d1a5ff 0 0.8px, transparent 1.5px),
+        radial-gradient(circle at 55% 76%, white 0 1px, transparent 1.7px),
+        radial-gradient(circle at 63% 28%, #eadfff 0 0.8px, transparent 1.5px),
+        radial-gradient(circle at 69% 91%, white 0 1px, transparent 1.7px),
+        radial-gradient(circle at 76% 43%, #c998ff 0 0.7px, transparent 1.5px),
+        radial-gradient(circle at 83% 15%, white 0 1.2px, transparent 2px),
+        radial-gradient(circle at 91% 61%, #dfc8ff 0 0.8px, transparent 1.5px),
+        radial-gradient(circle at 97% 34%, white 0 0.7px, transparent 1.5px);
+    animation: estrelasMovimento 18s ease-in-out infinite alternate;
+}
+
+#inicio::before {
+    content: "";
+    position: absolute;
+    inset: -30px;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 8% 44%, white 0 0.7px, transparent 1.5px),
+        radial-gradient(circle at 22% 8%, #cda4ff 0 0.8px, transparent 1.5px),
+        radial-gradient(circle at 38% 71%, white 0 0.6px, transparent 1.3px),
+        radial-gradient(circle at 52% 38%, #e8dcff 0 0.7px, transparent 1.5px),
+        radial-gradient(circle at 67% 6%, white 0 0.8px, transparent 1.5px),
+        radial-gradient(circle at 79% 73%, #c89aff 0 0.7px, transparent 1.4px),
+        radial-gradient(circle at 88% 49%, white 0 0.6px, transparent 1.3px),
+        radial-gradient(circle at 95% 87%, #e5d5ff 0 0.8px, transparent 1.5px);
+    opacity: 0.7;
+    animation: estrelasSecundarias 12s ease-in-out infinite alternate;
+}
+
+.estrelas::before,
+.estrelas::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    filter: blur(45px);
+}
+
+.estrelas::before {
+    width: 80vw;
+    height: 60vw;
+    left: -20%;
+    top: 3%;
+    background: radial-gradient(ellipse, rgba(135, 50, 200, 0.12), rgba(100, 30, 160, 0.05) 35%, transparent 70%);
+    animation: nebulosa 22s ease-in-out infinite alternate;
+}
+
+.estrelas::after {
+    width: 75vw;
+    height: 55vw;
+    right: -25%;
+    bottom: 0;
+    background: radial-gradient(ellipse, rgba(90, 35, 160, 0.10), rgba(130, 45, 190, 0.04) 35%, transparent 70%);
+    animation: nebulosa2 26s ease-in-out infinite alternate;
+}
+
+.brilho-roxo {
+    position: absolute;
+    width: min(90vw, 520px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(130, 50, 190, 0.20), transparent 70%);
+    filter: blur(30px);
+    pointer-events: none;
+    animation: brilho 6s ease-in-out infinite;
+}
+
+.abertura {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    padding: 24px;
+    text-align: center;
+    transition: opacity 1s ease, transform 1s ease, filter 1s ease;
+}
+
+.abertura.sumindo {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+    filter: blur(3px);
+    pointer-events: none;
+}
+
+.pre-titulo {
+    max-width: 330px;
+    margin: 0 auto 24px;
+    font-size: 0.49rem;
+    line-height: 1.7;
+    letter-spacing: 0.26em;
+    color: #bca3d9;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.6rem, 17vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.86;
+    background: linear-gradient(135deg, #ffffff 10%, #e4ceff 52%, #9a59d3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 38px rgba(150, 70, 220, 0.20);
+}
+
+.subtitulo {
+    margin-top: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: #c9b4d9;
+    letter-spacing: 0.15em;
+}
+
+.separador {
+    width: 64px;
+    height: 1px;
+    margin: 30px auto;
+    background: linear-gradient(to right, transparent, #9b5de5, transparent);
+}
+
+.mensagem-volume {
+    margin-bottom: 20px;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: #aaa0b5;
+}
+
+#btnComecar,
+.btn-cap2 {
+    min-height: 46px;
+    padding: 13px 24px;
+    border: 1px solid rgba(180, 120, 230, 0.48);
+    border-radius: 999px;
+    background: rgba(80, 30, 110, 0.16);
+    color: #eeeeee;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.69rem;
+    letter-spacing: 0.13em;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+#btnComecar:active,
+.btn-cap2:active { transform: scale(0.97); }
+
+.erro-carregamento {
+    position: absolute;
+    z-index: 100;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 30px;
+    text-align: center;
+    color: #e6daf0;
+    line-height: 1.7;
+}
+
+@keyframes estrelasMovimento {
+    0% { transform: translate3d(0,0,0); opacity: 0.65; }
+    50% { transform: translate3d(18px,-18px,0); opacity: 0.95; }
+    100% { transform: translate3d(36px,0,0); opacity: 0.7; }
+}
+
+@keyframes estrelasSecundarias {
+    from { transform: translate3d(0,0,0); }
+    to { transform: translate3d(-32px,14px,0); }
+}
+
+@keyframes nebulosa {
+    from { transform: rotate(-20deg) translate(0,0) scale(1); }
+    to { transform: rotate(-16deg) translate(5%,-4%) scale(1.08); }
+}
+
+@keyframes nebulosa2 {
+    from { transform: rotate(25deg) scale(1); }
+    to { transform: rotate(20deg) translate(-5%,3%) scale(1.1); }
+}
+
+@keyframes brilho {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.2); opacity: 1; }
+}

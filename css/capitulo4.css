@@ -1,0 +1,1235 @@
+/* =====================================================
+   CAPÍTULO IV
+   O JANTAR
+===================================================== */
+
+#capitulo4 {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 60;
+
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
+    overflow-y: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(1.025);
+
+    background:
+        radial-gradient(
+            circle at 50% 36%,
+            rgba(128, 72, 46, 0.16),
+            rgba(25, 11, 24, 0.92) 42%,
+            #05030a 76%
+        );
+
+    transition:
+        opacity 0.9s ease,
+        transform 1s ease,
+        visibility 0.9s ease;
+}
+
+
+#capitulo4.ativo {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+}
+
+
+#capitulo4.saindo {
+    opacity: 0;
+
+    transform:
+        scale(0.98);
+}
+
+
+/* =====================================================
+   ILUMINAÇÃO
+===================================================== */
+
+.cap4-luz {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 17%,
+            rgba(255, 195, 130, 0.10),
+            transparent 36%
+        ),
+
+        radial-gradient(
+            circle at 15% 70%,
+            rgba(130, 55, 160, 0.07),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(122, 58, 155, 0.07),
+            transparent 35%
+        );
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.cap4-conteudo {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(
+            91vw,
+            520px
+        );
+
+    min-height: 100%;
+
+    padding:
+        max(
+            48px,
+            env(safe-area-inset-top)
+        )
+        0
+        max(
+            34px,
+            env(safe-area-inset-bottom)
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.cap4-numero {
+    margin-bottom: 9px;
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.42em;
+
+    color: #c0a0ca;
+}
+
+
+#cap4Titulo {
+    max-width: 440px;
+
+    margin-bottom: 17px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            2.7rem,
+            12vw,
+            4.1rem
+        );
+
+    font-weight: 500;
+
+    line-height: 0.96;
+
+    color: #fff8f2;
+
+    text-shadow:
+        0 0 30px
+        rgba(227, 160, 115, 0.16);
+}
+
+
+/* =====================================================
+   VISUAL
+===================================================== */
+
+.cap4-visual {
+    width: 100%;
+
+    min-height: 150px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cap4-visual.entrando {
+    animation:
+        cap4Entrada
+        0.8s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.cap4-texto {
+    max-width: 440px;
+
+    min-height: 100px;
+
+    margin:
+        17px auto 20px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            1.23rem,
+            5.6vw,
+            1.62rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1.38;
+
+    color: #f4ebf3;
+
+    transition:
+        opacity 0.28s ease,
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+.cap4-texto strong {
+    color: #e3bdff;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 18px
+        rgba(168, 91, 232, 0.24);
+}
+
+
+.cap4-texto.trocando {
+    opacity: 0;
+
+    transform:
+        translateY(8px);
+
+    filter:
+        blur(2px);
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.btn-cap4 {
+    min-height: 46px;
+
+    margin-top: 3px;
+
+    padding:
+        13px 24px;
+
+    border:
+        1px solid
+        rgba(194, 145, 221, 0.43);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(101, 54, 91, 0.29),
+            rgba(48, 23, 47, 0.28)
+        );
+
+    color: #f3edf3;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 0.69rem;
+
+    letter-spacing: 0.13em;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.btn-cap4:active {
+    transform:
+        scale(0.97);
+}
+
+
+.btn-cap4.escondido {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   BOLA 4
+===================================================== */
+
+.cap4-orbita {
+    position: relative;
+
+    width: 135px;
+    height: 135px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(192, 132, 229, 0.16);
+
+    border-radius: 50%;
+
+    animation:
+        cap4Orbita
+        12s
+        linear
+        infinite;
+}
+
+
+.cap4-orbita::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 20px;
+
+    border:
+        1px solid
+        rgba(205, 160, 235, 0.10);
+
+    border-radius: 50%;
+}
+
+
+.cap4-bola {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 31% 25%,
+            #bd82ff,
+            #713ab0 48%,
+            #351b58
+        );
+
+    box-shadow:
+        inset -8px -8px 12px
+        rgba(0, 0, 0, 0.28),
+
+        inset 5px 4px 8px
+        rgba(255, 255, 255, 0.22),
+
+        0 0 30px
+        rgba(176, 104, 235, 0.25);
+}
+
+
+.cap4-bola span {
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #f8f7f4;
+
+    color: #111;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+}
+
+
+#bola4.virando-memoria-4 {
+    animation:
+        bolaMemoria4
+        0.75s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+/* =====================================================
+   PASSAGEM DE TEMPO
+===================================================== */
+
+.cap4-passagem {
+    width:
+        min(
+            100%,
+            350px
+        );
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 9px;
+}
+
+
+.cap4-passagem-item {
+    min-height: 88px;
+
+    padding: 14px 7px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(190, 145, 220, 0.12);
+
+    border-radius: 15px;
+
+    background:
+        rgba(31, 15, 40, 0.44);
+}
+
+
+.cap4-passagem-item b {
+    margin-bottom: 8px;
+
+    font-size: 1.2rem;
+}
+
+
+.cap4-passagem-item span {
+    font-size: 0.54rem;
+
+    letter-spacing: 0.1em;
+
+    color: #c8b7d0;
+}
+
+
+/* =====================================================
+   RESTAURANTE
+===================================================== */
+
+.cap4-restaurante {
+    position: relative;
+
+    width:
+        min(
+            90%,
+            350px
+        );
+
+    height: 170px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(232, 180, 137, 0.15);
+
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 206, 145, 0.20),
+            transparent 39%
+        ),
+
+        linear-gradient(
+            to bottom,
+            #281822,
+            #130d17
+        );
+
+    box-shadow:
+        0 22px 45px
+        rgba(0, 0, 0, 0.28);
+}
+
+
+.cap4-luminaria {
+    position: absolute;
+
+    top: -18px;
+    left: 50%;
+
+    width: 68px;
+    height: 52px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        0 0 50% 50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #3b2427,
+            #6c4134
+        );
+
+    box-shadow:
+        0 32px 55px
+        rgba(255, 186, 116, 0.15);
+}
+
+
+.cap4-mesa-jantar {
+    position: absolute;
+
+    left: 50%;
+    bottom: 29px;
+
+    width: 72%;
+    height: 32px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #4b302c,
+            #251a1c
+        );
+
+    box-shadow:
+        0 12px 20px
+        rgba(0, 0, 0, 0.38);
+}
+
+
+.cap4-prato {
+    position: absolute;
+
+    bottom: 40px;
+
+    width: 45px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background:
+        #d8d2ca;
+
+    opacity: 0.72;
+}
+
+
+.cap4-prato.esquerdo {
+    left: 26%;
+}
+
+
+.cap4-prato.direito {
+    right: 26%;
+}
+
+
+.cap4-copo {
+    position: absolute;
+
+    bottom: 55px;
+
+    width: 9px;
+    height: 26px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.38);
+
+    border-radius:
+        3px 3px 5px 5px;
+}
+
+
+.cap4-copo.esquerdo {
+    left: 39%;
+}
+
+
+.cap4-copo.direito {
+    right: 39%;
+}
+
+
+/* =====================================================
+   NERVOSISMO
+===================================================== */
+
+.cap4-nervosismo {
+    width:
+        min(
+            88%,
+            330px
+        );
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+.cap4-pessoa {
+    position: relative;
+
+    width: 88px;
+    height: 105px;
+
+    border:
+        1px solid
+        rgba(213, 171, 230, 0.12);
+
+    border-radius: 22px;
+
+    background:
+        rgba(38, 20, 41, 0.52);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.13em;
+
+    color: #cdbed5;
+}
+
+
+.cap4-pessoa::before {
+    content: "";
+
+    position: absolute;
+
+    top: 21px;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(226, 203, 235, 0.25);
+}
+
+
+.cap4-pessoa::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 19px;
+
+    width: 38px;
+    height: 34px;
+
+    border:
+        1px solid
+        rgba(226, 203, 235, 0.20);
+
+    border-radius:
+        20px 20px 8px 8px;
+}
+
+
+.cap4-pessoa span {
+    position: absolute;
+
+    bottom: -22px;
+}
+
+
+.cap4-pessoa.nervosa {
+    animation:
+        cap4Respirar
+        2.1s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   APREÇO
+===================================================== */
+
+.cap4-apreco {
+    position: relative;
+
+    width: 145px;
+    height: 145px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cap4-apreco::before,
+.cap4-apreco::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(194, 139, 229, 0.17);
+
+    animation:
+        cap4Expansao
+        3s
+        ease-out
+        infinite;
+}
+
+
+.cap4-apreco::before {
+    width: 65px;
+    height: 65px;
+}
+
+
+.cap4-apreco::after {
+    width: 110px;
+    height: 110px;
+
+    animation-delay:
+        0.7s;
+}
+
+
+.cap4-apreco-centro {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background:
+        #d9b5ff;
+
+    box-shadow:
+        0 0 25px
+        rgba(211, 166, 244, 0.85);
+}
+
+
+/* =====================================================
+   GASOLINA
+===================================================== */
+
+.cap4-combustivel {
+    width:
+        min(
+            88%,
+            330px
+        );
+
+    padding:
+        22px 20px;
+
+    border:
+        1px solid
+        rgba(190, 148, 220, 0.13);
+
+    border-radius: 20px;
+
+    background:
+        rgba(20, 13, 25, 0.72);
+}
+
+
+.cap4-medidor {
+    position: relative;
+
+    width: 210px;
+    height: 15px;
+
+    margin:
+        10px auto 12px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    background:
+        #09080b;
+}
+
+
+.cap4-nivel {
+    position: absolute;
+
+    inset:
+        2px auto 2px 2px;
+
+    width: 78%;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            to right,
+            #9d69c9,
+            #d8a8e8
+        );
+
+    animation:
+        cap4Gasolina
+        3s
+        ease-in
+        forwards;
+}
+
+
+.cap4-marcas {
+    display: flex;
+
+    justify-content: space-between;
+
+    width: 215px;
+
+    margin: auto;
+
+    font-size: 0.6rem;
+
+    letter-spacing: 0.12em;
+
+    color: #b6a7bd;
+}
+
+
+/* =====================================================
+   CARRO PARADO
+===================================================== */
+
+.cap4-carro-parado {
+    position: relative;
+
+    width:
+        min(
+            90%,
+            345px
+        );
+
+    height: 145px;
+
+    overflow: hidden;
+
+    border-radius:
+        25px 25px 14px 14px;
+
+    border:
+        1px solid
+        rgba(187, 145, 216, 0.12);
+
+    background:
+        linear-gradient(
+            to bottom,
+            #070710,
+            #10101a 62%,
+            #07070b
+        );
+}
+
+
+.cap4-carro-parado::before {
+    content: "";
+
+    position: absolute;
+
+    inset:
+        16px 25px 50px;
+
+    border:
+        1px solid
+        rgba(188, 169, 203, 0.11);
+
+    border-radius:
+        20px 20px 7px 7px;
+
+    background:
+        radial-gradient(
+            circle at 18% 23%,
+            white 0 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 77% 32%,
+            white 0 0.8px,
+            transparent 1.4px
+        ),
+
+        #06060d;
+}
+
+
+.cap4-esperando {
+    position: absolute;
+
+    right: 27%;
+    bottom: 17px;
+
+    width: 58px;
+    height: 47px;
+
+    border-radius:
+        28px 28px 8px 8px;
+
+    background:
+        #19141e;
+}
+
+
+.cap4-correndo {
+    position: absolute;
+
+    left: -25px;
+    bottom: 20px;
+
+    font-size: 1.6rem;
+
+    animation:
+        cap4Correr
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.cap4-final {
+    position: relative;
+
+    width: 145px;
+    height: 145px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(209, 161, 235, 0.16);
+
+    box-shadow:
+        0 0 45px
+        rgba(155, 83, 199, 0.09);
+}
+
+
+.cap4-final span {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 2rem;
+
+    color: #e1c1f5;
+
+    text-shadow:
+        0 0 22px
+        rgba(206, 159, 236, 0.28);
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes cap4Entrada {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(14px)
+            scale(0.96);
+
+        filter:
+            blur(4px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+@keyframes cap4Orbita {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes cap4Respirar {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-3px)
+            scale(1.025);
+    }
+}
+
+
+@keyframes cap4Expansao {
+
+    0% {
+        transform:
+            scale(0.65);
+
+        opacity: 0.8;
+    }
+
+    100% {
+        transform:
+            scale(1.35);
+
+        opacity: 0;
+    }
+}
+
+
+@keyframes cap4Gasolina {
+
+    from {
+        width: 78%;
+    }
+
+    to {
+        width: 2%;
+    }
+}
+
+
+@keyframes cap4Correr {
+
+    0% {
+        left: -25px;
+    }
+
+    48% {
+        left: 42%;
+    }
+
+    52% {
+        left: 42%;
+    }
+
+    100% {
+        left: 110%;
+    }
+}
+
+
+@keyframes bolaMemoria4 {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        filter:
+            brightness(1);
+    }
+
+    60% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.65);
+
+        filter:
+            brightness(1.8)
+            drop-shadow(
+                0 0 25px
+                rgba(190, 113, 240, 0.70)
+            );
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.1);
+
+        opacity: 0;
+
+        filter:
+            blur(5px)
+            brightness(2);
+    }
+}
+
+
+/* =====================================================
+   CELULAR BAIXO
+===================================================== */
+
+@media
+(max-height: 700px)
+and
+(max-width: 767px) {
+
+    .cap4-conteudo {
+        justify-content:
+            flex-start;
+
+        padding-top:
+            30px;
+    }
+
+
+    #cap4Titulo {
+        font-size:
+            2.2rem;
+    }
+
+
+    .cap4-visual {
+        min-height:
+            105px;
+    }
+
+
+    .cap4-texto {
+        min-height:
+            70px;
+
+        margin:
+            11px 0 14px;
+
+        font-size:
+            1.06rem;
+    }
+
+
+    .cap4-restaurante {
+        height:
+            125px;
+    }
+
+
+    .cap4-carro-parado {
+        height:
+            115px;
+    }
+}

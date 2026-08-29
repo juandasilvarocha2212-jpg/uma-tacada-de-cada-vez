@@ -1,0 +1,1236 @@
+/* =====================================================
+   CAPÍTULO III
+   BRASIL × NORUEGA
+===================================================== */
+
+#capitulo3 {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 55;
+
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
+    overflow-y: auto;
+
+    display: flex;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(1.025);
+
+    background:
+        radial-gradient(
+            circle at 50% 34%,
+            rgba(111, 43, 158, 0.17),
+            rgba(5, 3, 10, 0.97) 70%
+        );
+
+    transition:
+        opacity 0.9s ease,
+        transform 1s ease,
+        visibility 0.9s ease;
+}
+
+
+#capitulo3.ativo {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+}
+
+
+#capitulo3.saindo {
+    opacity: 0;
+
+    transform:
+        scale(0.98);
+}
+
+
+/* =====================================================
+   FUNDO
+===================================================== */
+
+.cap3-nevoa {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            circle at 18% 28%,
+            rgba(116, 50, 174, 0.11),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 82% 72%,
+            rgba(61, 37, 129, 0.10),
+            transparent 40%
+        );
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.cap3-conteudo {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(
+            91vw,
+            520px
+        );
+
+    min-height: 100%;
+
+    padding:
+        max(
+            50px,
+            env(safe-area-inset-top)
+        )
+        0
+        max(
+            34px,
+            env(safe-area-inset-bottom)
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+.cap3-numero {
+    margin-bottom: 9px;
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.42em;
+
+    color: #b993d4;
+}
+
+
+#cap3Titulo {
+    max-width: 440px;
+
+    margin-bottom: 17px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            2.6rem,
+            12vw,
+            4rem
+        );
+
+    font-weight: 500;
+
+    line-height: 0.96;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 30px
+        rgba(170, 85, 230, 0.20);
+}
+
+
+/* =====================================================
+   VISUAL
+===================================================== */
+
+.cap3-visual {
+    width: 100%;
+
+    min-height: 145px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cap3-visual.entrando {
+    animation:
+        cap3Entrada
+        0.75s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.cap3-texto {
+    max-width: 440px;
+
+    min-height: 100px;
+
+    margin:
+        17px auto 20px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            1.23rem,
+            5.6vw,
+            1.62rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1.38;
+
+    color: #f1e9f7;
+
+    transition:
+        opacity 0.28s ease,
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+.cap3-texto strong {
+    color: #d9b5ff;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 18px
+        rgba(168, 91, 232, 0.25);
+}
+
+
+.cap3-texto.trocando {
+    opacity: 0;
+
+    transform:
+        translateY(8px);
+
+    filter:
+        blur(2px);
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.btn-cap3 {
+    min-height: 46px;
+
+    margin-top: 3px;
+
+    padding:
+        13px 24px;
+
+    border:
+        1px solid
+        rgba(180, 120, 230, 0.48);
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(93, 40, 130, 0.25),
+            rgba(40, 18, 58, 0.25)
+        );
+
+    color: #eeeeee;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 0.69rem;
+
+    letter-spacing: 0.13em;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.btn-cap3:active {
+    transform:
+        scale(0.97);
+}
+
+
+.btn-cap3.escondido {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   BOLA 3
+===================================================== */
+
+.cap3-orbita {
+    position: relative;
+
+    width: 135px;
+    height: 135px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border:
+        1px solid
+        rgba(193, 115, 160, 0.15);
+
+    border-radius: 50%;
+
+    animation:
+        cap3Orbita
+        12s
+        linear
+        infinite;
+}
+
+
+.cap3-orbita::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 20px;
+
+    border:
+        1px solid
+        rgba(200, 135, 184, 0.11);
+
+    border-radius: 50%;
+}
+
+
+.cap3-bola {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 31% 25%,
+            #ff858c,
+            #c6313e 48%,
+            #681922
+        );
+
+    box-shadow:
+        inset -8px -8px 12px
+        rgba(0, 0, 0, 0.28),
+
+        inset 5px 4px 8px
+        rgba(255, 255, 255, 0.22),
+
+        0 0 30px
+        rgba(218, 89, 119, 0.20);
+}
+
+
+.cap3-bola span {
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        #f8f7f4;
+
+    color:
+        #111;
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+}
+
+
+#bola3.virando-memoria-3 {
+    animation:
+        bolaMemoria3
+        0.75s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+/* =====================================================
+   BUSCAR ELA
+===================================================== */
+
+.cap3-rota {
+    width:
+        min(
+            100%,
+            345px
+        );
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.cap3-rota-ponto {
+    min-width: 55px;
+}
+
+
+.cap3-rota-ponto div {
+    width: 12px;
+    height: 12px;
+
+    margin:
+        0 auto 8px;
+
+    border-radius: 50%;
+
+    background:
+        #b878ea;
+
+    box-shadow:
+        0 0 18px
+        rgba(184, 120, 234, 0.50);
+}
+
+
+.cap3-rota-ponto span {
+    font-size: 0.56rem;
+
+    letter-spacing: 0.15em;
+
+    color: #cbbcd6;
+}
+
+
+.cap3-rota-linha {
+    position: relative;
+
+    flex: 1;
+
+    height: 1px;
+
+    margin:
+        0 8px 25px;
+
+    overflow: hidden;
+
+    background:
+        rgba(191, 151, 221, 0.18);
+}
+
+
+.cap3-rota-linha::after {
+    content: "";
+
+    position: absolute;
+
+    width: 42%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #c996ed,
+            transparent
+        );
+
+    animation:
+        cap3Rota
+        1.8s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   JOGO
+===================================================== */
+
+.cap3-jogo {
+    width:
+        min(
+            100%,
+            355px
+        );
+
+    padding:
+        21px 18px;
+
+    border:
+        1px solid
+        rgba(193, 147, 232, 0.13);
+
+    border-radius: 19px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(24, 19, 33, 0.84),
+            rgba(11, 8, 16, 0.90)
+        );
+
+    box-shadow:
+        0 20px 45px
+        rgba(0, 0, 0, 0.24);
+}
+
+
+.cap3-jogo small {
+    display: block;
+
+    margin-bottom: 14px;
+
+    font-size: 0.54rem;
+
+    letter-spacing: 0.20em;
+
+    color: #9e8fab;
+}
+
+
+.cap3-times {
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 1.13rem;
+
+    letter-spacing: 0.08em;
+
+    color: #f4eef8;
+}
+
+
+.cap3-resultado {
+    margin-top: 13px;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.18em;
+
+    color: #b6a5c2;
+}
+
+
+/* =====================================================
+   PRESENÇA
+===================================================== */
+
+.cap3-presenca {
+    position: relative;
+
+    width:
+        min(
+            90%,
+            300px
+        );
+
+    height: 115px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.cap3-presenca::before,
+.cap3-presenca::after {
+    content: "";
+
+    width: 72px;
+    height: 72px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(207, 173, 234, 0.20);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(126, 70, 169, 0.16),
+            rgba(28, 15, 40, 0.42)
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(131, 74, 178, 0.09);
+}
+
+
+.cap3-presenca::before {
+    transform:
+        translateX(10px);
+}
+
+
+.cap3-presenca::after {
+    transform:
+        translateX(-10px);
+}
+
+
+.cap3-presenca-coracao {
+    position: absolute;
+
+    z-index: 3;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        #d8b4f5;
+
+    box-shadow:
+        0 0 18px
+        rgba(215, 180, 245, 0.8);
+
+    animation:
+        cap3Pulso
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   CAMINHADA
+===================================================== */
+
+.cap3-caminhada {
+    position: relative;
+
+    width:
+        min(
+            90%,
+            330px
+        );
+
+    height: 100px;
+}
+
+
+.cap3-caminho {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+
+    top: 50%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(200, 168, 226, 0.35),
+            transparent
+        );
+}
+
+
+.cap3-passo {
+    position: absolute;
+
+    top:
+        calc(
+            50% - 5px
+        );
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background:
+        #c897ec;
+
+    box-shadow:
+        0 0 15px
+        rgba(200, 151, 236, 0.55);
+
+    animation:
+        cap3Caminhar
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+.cap3-passo.segundo {
+    animation-delay:
+        0.25s;
+}
+
+
+/* =====================================================
+   HISTÓRIA ENGRAÇADA
+===================================================== */
+
+.cap3-historia {
+    width:
+        min(
+            88%,
+            330px
+        );
+
+    padding:
+        21px 18px;
+
+    border-radius:
+        18px;
+
+    border:
+        1px solid
+        rgba(191, 143, 226, 0.14);
+
+    background:
+        rgba(35, 18, 48, 0.56);
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        1.25rem;
+
+    line-height: 1.35;
+
+    color:
+        #f2ebf7;
+}
+
+
+.cap3-historia span {
+    display: block;
+
+    margin-top: 10px;
+
+    font-size:
+        1.7rem;
+}
+
+
+/* =====================================================
+   SINUCA
+===================================================== */
+
+.cap3-sinuca {
+    position: relative;
+
+    width:
+        min(
+            100%,
+            320px
+        );
+
+    height: 120px;
+
+    overflow: hidden;
+
+    border:
+        8px solid
+        #352042;
+
+    border-radius:
+        16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0e3c3d,
+            #14524c
+        );
+
+    box-shadow:
+        0 18px 40px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.cap3-mini-bola {
+    position: absolute;
+
+    width: 21px;
+    height: 21px;
+
+    border-radius: 50%;
+
+    box-shadow:
+        inset -5px -5px 8px
+        rgba(0, 0, 0, 0.3);
+}
+
+
+.cap3-mini-bola.branca {
+    left: 27%;
+    top: 55%;
+
+    background:
+        white;
+
+    animation:
+        cap3TacadaBranca
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+.cap3-mini-bola.vermelha {
+    left: 63%;
+    top: 38%;
+
+    background:
+        #c6313e;
+
+    animation:
+        cap3TacadaVermelha
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   CARRO À NOITE
+===================================================== */
+
+.cap3-carro {
+    position: relative;
+
+    width:
+        min(
+            90%,
+            345px
+        );
+
+    height: 150px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(195, 155, 225, 0.13);
+
+    border-radius:
+        28px 28px 15px 15px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #090814,
+            #11101b 65%,
+            #08070c
+        );
+
+    box-shadow:
+        0 20px 45px
+        rgba(0, 0, 0, 0.28);
+}
+
+
+.cap3-carro::before {
+    content: "";
+
+    position: absolute;
+
+    inset:
+        15px 24px 52px;
+
+    border:
+        1px solid
+        rgba(182, 159, 202, 0.12);
+
+    border-radius:
+        20px 20px 7px 7px;
+
+    background:
+
+        radial-gradient(
+            circle at 18% 22%,
+            white 0 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 74% 32%,
+            #ddc7f2 0 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 48% 18%,
+            white 0 0.8px,
+            transparent 1.3px
+        ),
+
+        #070712;
+}
+
+
+.cap3-banco {
+    position: absolute;
+
+    bottom: 14px;
+
+    width: 78px;
+    height: 53px;
+
+    border-radius:
+        30px 30px 8px 8px;
+
+    background:
+        #17131d;
+}
+
+
+.cap3-banco.esquerdo {
+    left: 20%;
+}
+
+
+.cap3-banco.direito {
+    right: 20%;
+}
+
+
+/* =====================================================
+   ROTINA
+===================================================== */
+
+.cap3-rotina {
+    width:
+        min(
+            100%,
+            350px
+        );
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 8px;
+}
+
+
+.cap3-rotina-item {
+    min-height: 90px;
+
+    padding:
+        15px 7px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(192, 149, 225, 0.12);
+
+    border-radius:
+        15px;
+
+    background:
+        rgba(29, 15, 41, 0.43);
+}
+
+
+.cap3-rotina-item b {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 1.25rem;
+}
+
+
+.cap3-rotina-item span {
+    font-size: 0.56rem;
+
+    letter-spacing: 0.10em;
+
+    color: #c4b5ce;
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes cap3Entrada {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(14px)
+            scale(0.96);
+
+        filter:
+            blur(4px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+@keyframes cap3Orbita {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes cap3Rota {
+
+    from {
+        left: -42%;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+
+@keyframes cap3Pulso {
+
+    0%,
+    100% {
+        transform:
+            scale(0.8);
+
+        opacity: 0.55;
+    }
+
+    50% {
+        transform:
+            scale(1.5);
+
+        opacity: 1;
+    }
+}
+
+
+@keyframes cap3Caminhar {
+
+    0% {
+        left: 8%;
+    }
+
+    50% {
+        left: 80%;
+    }
+
+    100% {
+        left: 8%;
+    }
+}
+
+
+@keyframes cap3TacadaBranca {
+
+    0%,
+    18% {
+        left: 27%;
+    }
+
+    55%,
+    100% {
+        left: 54%;
+    }
+}
+
+
+@keyframes cap3TacadaVermelha {
+
+    0%,
+    54% {
+        left: 63%;
+        top: 38%;
+    }
+
+    100% {
+        left: 77%;
+        top: 20%;
+    }
+}
+
+
+@keyframes bolaMemoria3 {
+
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        filter:
+            brightness(1);
+    }
+
+    60% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.65);
+
+        filter:
+            brightness(1.7)
+            drop-shadow(
+                0 0 25px
+                rgba(220, 80, 110, 0.55)
+            );
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.1);
+
+        opacity: 0;
+
+        filter:
+            blur(5px)
+            brightness(2);
+    }
+}
+
+
+/* =====================================================
+   CELULARES BAIXOS
+===================================================== */
+
+@media
+(max-height: 700px)
+and
+(max-width: 767px) {
+
+    .cap3-conteudo {
+        justify-content:
+            flex-start;
+
+        padding-top:
+            32px;
+    }
+
+
+    #cap3Titulo {
+        font-size:
+            2.25rem;
+    }
+
+
+    .cap3-visual {
+        min-height:
+            105px;
+    }
+
+
+    .cap3-texto {
+        min-height:
+            72px;
+
+        margin:
+            11px 0 14px;
+
+        font-size:
+            1.08rem;
+    }
+
+
+    .cap3-carro {
+        height:
+            120px;
+    }
+}

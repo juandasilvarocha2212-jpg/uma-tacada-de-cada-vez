@@ -1,0 +1,731 @@
+/* =====================================================
+   CAPÍTULO VI
+   UM POUCO DO MEU MUNDO
+===================================================== */
+
+#capitulo6 {
+    position: absolute;
+    inset: 0;
+    z-index: 66;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.025);
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(112, 72, 145, 0.17),
+            rgba(7, 6, 12, 0.98) 68%
+        );
+    transition:
+        opacity 0.9s ease,
+        transform 1s ease,
+        visibility 0.9s ease;
+}
+
+#capitulo6.ativo {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+#capitulo6.saindo {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+
+/* =====================================================
+   FUNDO
+===================================================== */
+
+.cap6-fundo {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 18% 25%,
+            rgba(156, 105, 183, 0.06),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 82% 75%,
+            rgba(92, 66, 120, 0.07),
+            transparent 40%
+        );
+}
+
+.cap6-fundo::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -25%;
+    width: 90vw;
+    height: 90vh;
+    transform: translateX(-50%);
+    clip-path: polygon(
+        42% 0,
+        58% 0,
+        100% 100%,
+        0 100%
+    );
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(225, 211, 235, 0.045),
+            transparent
+        );
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.cap6-conteudo {
+    position: relative;
+    z-index: 2;
+    width: min(91vw, 520px);
+    min-height: 100%;
+    padding:
+        max(46px, env(safe-area-inset-top))
+        0
+        max(34px, env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* =====================================================
+   NÚMERO
+===================================================== */
+
+.cap6-numero {
+    margin-bottom: 9px;
+    font-size: 0.57rem;
+    letter-spacing: 0.42em;
+    color: #b8a5c4;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+#cap6Titulo {
+    max-width: 460px;
+    margin-bottom: 18px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.55rem, 10.8vw, 4rem);
+    font-weight: 500;
+    line-height: 0.98;
+    color: #ffffff;
+    text-shadow:
+        0 0 30px rgba(163, 112, 190, 0.16);
+}
+
+
+/* =====================================================
+   VISUAL
+===================================================== */
+
+.cap6-visual {
+    width: 100%;
+    min-height: 150px;
+    height: auto;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cap6-visual.entrando {
+    animation:
+        cap6Entrada
+        0.85s
+        cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.cap6-texto {
+    max-width: 445px;
+    min-height: 100px;
+    margin: 17px auto 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.22rem, 5.5vw, 1.6rem);
+    font-weight: 500;
+    line-height: 1.4;
+    color: #f0eaf3;
+}
+
+.cap6-texto strong {
+    color: #d7b9e8;
+    font-weight: 600;
+    text-shadow:
+        0 0 18px rgba(182, 126, 211, 0.22);
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.btn-cap6 {
+    min-height: 46px;
+    margin-top: 3px;
+    padding: 13px 24px;
+    border: 1px solid rgba(183, 143, 204, 0.42);
+    border-radius: 999px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(84, 53, 102, 0.30),
+            rgba(33, 22, 42, 0.28)
+        );
+    color: #f2edf5;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.69rem;
+    letter-spacing: 0.13em;
+    cursor: pointer;
+    touch-action: manipulation;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.btn-cap6:active {
+    transform: scale(0.97);
+}
+
+
+/* =====================================================
+   BOLA VI
+===================================================== */
+
+.cap6-orbita {
+    position: relative;
+    width: 135px;
+    height: 135px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(199, 164, 215, 0.14);
+    border-radius: 50%;
+    animation:
+        cap6Orbita
+        13s
+        linear
+        infinite;
+}
+
+.cap6-orbita::before {
+    content: "";
+    position: absolute;
+    inset: 20px;
+    border: 1px solid rgba(201, 170, 218, 0.09);
+    border-radius: 50%;
+}
+
+.cap6-bola {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            #69c16d,
+            #318d49 48%,
+            #173f24
+        );
+    box-shadow:
+        inset -8px -8px 12px rgba(0, 0, 0, 0.27),
+        inset 5px 4px 8px rgba(255, 255, 255, 0.18),
+        0 0 30px rgba(70, 165, 93, 0.15);
+}
+
+.cap6-bola span {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: #faf9f7;
+    color: #111;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+#bola6.virando-memoria-6 {
+    animation:
+        bolaMemoria6
+        0.75s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+
+/* =====================================================
+   CASA / PORTA
+===================================================== */
+
+.cap6-casa {
+    position: relative;
+    width: 180px;
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.cap6-casa-corpo {
+    position: relative;
+    width: 125px;
+    height: 82px;
+    border: 1px solid rgba(210, 185, 220, 0.16);
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(75, 55, 85, 0.46),
+            rgba(25, 19, 30, 0.88)
+        );
+    border-radius: 5px 5px 2px 2px;
+}
+
+.cap6-casa-corpo::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -38px;
+    width: 92px;
+    height: 92px;
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+    border: 1px solid rgba(205, 183, 216, 0.13);
+    background: rgba(40, 29, 46, 0.93);
+    z-index: -1;
+}
+
+.cap6-porta {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 36px;
+    height: 57px;
+    transform: translateX(-50%);
+    border: 1px solid rgba(221, 199, 231, 0.19);
+    border-bottom: 0;
+    border-radius: 4px 4px 0 0;
+    background: rgba(15, 12, 18, 0.9);
+}
+
+.cap6-porta::after {
+    content: "";
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #d8bedf;
+    box-shadow:
+        0 0 8px rgba(216, 190, 223, 0.7);
+}
+
+
+/* =====================================================
+   RESPIRAÇÃO
+===================================================== */
+
+.cap6-respiracao {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cap6-respiracao span {
+    position: absolute;
+    border: 1px solid rgba(210, 177, 223, 0.19);
+    border-radius: 50%;
+    animation:
+        cap6Respirar
+        3.2s
+        ease-in-out
+        infinite;
+}
+
+.cap6-respiracao span:nth-child(1) {
+    width: 50px;
+    height: 50px;
+}
+
+.cap6-respiracao span:nth-child(2) {
+    width: 88px;
+    height: 88px;
+    animation-delay: 0.3s;
+}
+
+.cap6-respiracao span:nth-child(3) {
+    width: 128px;
+    height: 128px;
+    animation-delay: 0.6s;
+}
+
+.cap6-respiracao-centro {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #d7b9e8;
+    box-shadow:
+        0 0 25px rgba(210, 166, 234, 0.7);
+}
+
+
+/* =====================================================
+   FAMÍLIA
+===================================================== */
+
+.cap6-familia {
+    position: relative;
+    width: min(90%, 330px);
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.cap6-pessoa {
+    position: relative;
+    width: 43px;
+    height: 80px;
+}
+
+.cap6-pessoa::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: rgba(198, 176, 207, 0.28);
+    border: 1px solid rgba(222, 200, 230, 0.14);
+}
+
+.cap6-pessoa::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 40px;
+    height: 47px;
+    transform: translateX(-50%);
+    border-radius: 20px 20px 7px 7px;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(98, 72, 108, 0.45),
+            rgba(29, 21, 34, 0.82)
+        );
+}
+
+.cap6-pessoa.destaque::before {
+    background: rgba(191, 136, 215, 0.48);
+    box-shadow:
+        0 0 17px rgba(188, 129, 215, 0.2);
+}
+
+.cap6-pessoa.destaque::after {
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(120, 74, 143, 0.55),
+            rgba(38, 24, 47, 0.86)
+        );
+}
+
+
+/* =====================================================
+   PARQUE
+===================================================== */
+
+.cap6-parque {
+    position: relative;
+    width: min(92%, 360px);
+    height: 145px;
+    overflow: hidden;
+    border-radius: 20px;
+    border: 1px solid rgba(191, 174, 204, 0.10);
+    background:
+        linear-gradient(
+            to bottom,
+            #17131e 0%,
+            #0d1013 68%,
+            #0c1110 100%
+        );
+}
+
+.cap6-lua {
+    position: absolute;
+    right: 38px;
+    top: 21px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(234, 225, 239, 0.9);
+    box-shadow:
+        0 0 22px rgba(225, 213, 234, 0.24);
+}
+
+.cap6-arvore {
+    position: absolute;
+    bottom: 0;
+    width: 46px;
+    height: 95px;
+}
+
+.cap6-arvore::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 7px;
+    height: 47px;
+    transform: translateX(-50%);
+    background: #16161a;
+}
+
+.cap6-arvore::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 45px;
+    height: 54px;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 42% 42%;
+    background: #13191a;
+}
+
+.cap6-arvore.a {
+    left: 25px;
+}
+
+.cap6-arvore.b {
+    left: 76px;
+    transform: scale(0.75);
+}
+
+.cap6-arvore.c {
+    right: 30px;
+    transform: scale(0.9);
+}
+
+.cap6-banco {
+    position: absolute;
+    left: 50%;
+    bottom: 23px;
+    width: 82px;
+    height: 28px;
+    transform: translateX(-50%);
+}
+
+.cap6-banco::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 100%;
+    height: 8px;
+    border-radius: 3px;
+    background: rgba(126, 106, 135, 0.52);
+}
+
+.cap6-banco::after {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 12px;
+    width: 60px;
+    height: 17px;
+    border-left: 3px solid rgba(98, 85, 105, 0.6);
+    border-right: 3px solid rgba(98, 85, 105, 0.6);
+}
+
+
+/* =====================================================
+   FOTO
+===================================================== */
+
+.cap6-foto {
+    display: block;
+    width: min(72vw, 310px);
+    height: auto;
+    margin: 0 auto;
+    padding: 7px;
+    overflow: visible;
+    border: 1px solid rgba(196, 151, 224, 0.22);
+    border-radius: 18px;
+    background: rgba(19, 13, 25, 0.82);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.38);
+}
+
+.cap6-foto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+.cap6-foto figcaption {
+    display: block;
+    padding: 10px 6px 3px;
+    font-size: 0.52rem;
+    letter-spacing: 0.14em;
+    color: #aa99b5;
+}
+
+.cap6-foto-menor {
+    width: min(54vw, 225px);
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes cap6Entrada {
+    from {
+        opacity: 0;
+        transform:
+            translateY(14px)
+            scale(0.96);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes cap6Orbita {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cap6Respirar {
+    0%,
+    100% {
+        transform: scale(0.86);
+        opacity: 0.32;
+    }
+
+    50% {
+        transform: scale(1.06);
+        opacity: 0.85;
+    }
+}
+
+@keyframes bolaMemoria6 {
+    0% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+        filter: brightness(1);
+    }
+
+    60% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.65);
+        filter:
+            brightness(1.7)
+            drop-shadow(
+                0 0 24px
+                rgba(87, 190, 108, 0.55)
+            );
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.1);
+        opacity: 0;
+        filter:
+            blur(5px)
+            brightness(2);
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media
+(max-height: 700px)
+and
+(max-width: 767px) {
+
+    .cap6-conteudo {
+        justify-content: flex-start;
+        padding-top: 30px;
+    }
+
+    #cap6Titulo {
+        font-size: 2.2rem;
+    }
+
+    .cap6-visual {
+        min-height: 110px;
+    }
+
+    .cap6-texto {
+        min-height: 72px;
+        margin: 10px 0 14px;
+        font-size: 1.06rem;
+    }
+
+    .cap6-parque {
+        height: 115px;
+    }
+
+    .cap6-foto {
+        width: min(58vw, 220px);
+    }
+
+    .cap6-foto-menor {
+        width: min(44vw, 170px);
+    }
+}

@@ -1,0 +1,1543 @@
+/* =====================================================
+   CAPÍTULO VII
+   SÓ MAIS UM POUCO
+===================================================== */
+
+#capitulo7 {
+    position: absolute;
+    inset: 0;
+
+    z-index: 67;
+
+    width: 100%;
+
+    height: 100vh;
+    height: 100svh;
+
+    overflow-y: auto;
+
+    display: flex;
+    justify-content: center;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(1.025);
+
+    background:
+        radial-gradient(
+            circle at 50% 23%,
+            rgba(101, 66, 145, 0.18),
+            rgba(6, 6, 12, 0.99) 69%
+        );
+
+    transition:
+        opacity 0.9s ease,
+        transform 1s ease,
+        visibility 0.9s ease;
+}
+
+
+#capitulo7.ativo {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+}
+
+
+#capitulo7.saindo {
+    opacity: 0;
+
+    transform:
+        scale(0.98);
+}
+
+
+/* =====================================================
+   FUNDO
+===================================================== */
+
+.cap7-fundo {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 18% 24%,
+            rgba(127, 78, 169, 0.07),
+            transparent 36%
+        ),
+
+        radial-gradient(
+            circle at 80% 76%,
+            rgba(60, 72, 130, 0.07),
+            transparent 40%
+        );
+}
+
+
+.cap7-fundo::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.28;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.48)
+            0 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(197,170,226,.32)
+            0 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        89px 89px,
+        137px 137px;
+
+    background-position:
+        12px 18px,
+        51px 37px;
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.cap7-conteudo {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        min(
+            91vw,
+            520px
+        );
+
+    min-height: 100%;
+
+    padding:
+        max(
+            46px,
+            env(safe-area-inset-top)
+        )
+        0
+        max(
+            34px,
+            env(safe-area-inset-bottom)
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   CAPÍTULO
+===================================================== */
+
+.cap7-numero {
+    margin-bottom: 9px;
+
+    font-size: 0.57rem;
+
+    letter-spacing: 0.42em;
+
+    color: #aa9aba;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+#cap7Titulo {
+    max-width: 470px;
+
+    margin-bottom: 18px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            2.5rem,
+            10vw,
+            3.9rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    color: #ffffff;
+
+    text-shadow:
+        0 0 30px
+        rgba(143, 101, 190, 0.16);
+}
+
+
+/* =====================================================
+   VISUAL
+===================================================== */
+
+.cap7-visual {
+    width: 100%;
+
+    min-height: 145px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.cap7-visual.entrando {
+    animation:
+        cap7Entrada
+        0.85s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.cap7-texto {
+    max-width: 445px;
+
+    min-height: 100px;
+
+    margin:
+        17px auto 20px;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            1.22rem,
+            5.4vw,
+            1.6rem
+        );
+
+    font-weight: 500;
+
+    line-height: 1.4;
+
+    color: #eeeaf3;
+}
+
+
+.cap7-texto strong {
+    color: #d4b8e6;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 18px
+        rgba(178, 128, 207, 0.21);
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.btn-cap7 {
+    min-height: 46px;
+
+    margin-top: 3px;
+
+    padding:
+        13px
+        24px;
+
+    border:
+        1px solid
+        rgba(
+            174,
+            139,
+            198,
+            0.4
+        );
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(
+                71,
+                46,
+                93,
+                0.31
+            ),
+            rgba(
+                27,
+                20,
+                38,
+                0.3
+            )
+        );
+
+    color: #f2edf5;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size: 0.69rem;
+
+    letter-spacing: 0.13em;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+}
+
+
+.btn-cap7:active {
+    transform:
+        scale(0.97);
+}
+
+
+/* =====================================================
+   BOLA 7 DA MESA
+===================================================== */
+
+.bola-vinho {
+    background:
+        radial-gradient(
+            circle at 32% 26%,
+            #d98b9e,
+            #7a263e 48%,
+            #35101c
+        );
+}
+
+
+#bola7.virando-memoria-7 {
+    animation:
+        bolaMemoria7
+        0.75s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+/* =====================================================
+   VÁRIAS NOITES
+===================================================== */
+
+.cap7-noites {
+    position: relative;
+
+    width: 225px;
+
+    height: 118px;
+}
+
+
+.cap7-memoria {
+    position: absolute;
+
+    width: 58px;
+
+    height: 78px;
+
+    border:
+        1px solid
+        rgba(
+            194,
+            167,
+            214,
+            0.17
+        );
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(
+                43,
+                34,
+                55,
+                0.82
+            ),
+            rgba(
+                10,
+                10,
+                16,
+                0.96
+            )
+        );
+
+    box-shadow:
+        0 12px 25px
+        rgba(
+            0,
+            0,
+            0,
+            0.24
+        );
+}
+
+
+.cap7-memoria::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 16px;
+
+    width: 7px;
+
+    height: 7px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            207,
+            179,
+            229,
+            0.72
+        );
+
+    box-shadow:
+        0 0 13px
+        rgba(
+            194,
+            151,
+            224,
+            0.35
+        );
+}
+
+
+.cap7-memoria.m1 {
+    left: 8px;
+
+    top: 27px;
+
+    transform:
+        rotate(-9deg);
+}
+
+
+.cap7-memoria.m2 {
+    left: 59px;
+
+    top: 9px;
+
+    transform:
+        rotate(-3deg);
+}
+
+
+.cap7-memoria.m3 {
+    left: 110px;
+
+    top: 10px;
+
+    transform:
+        rotate(4deg);
+}
+
+
+.cap7-memoria.m4 {
+    left: 160px;
+
+    top: 28px;
+
+    transform:
+        rotate(9deg);
+}
+
+
+/* =====================================================
+   SINUCA
+===================================================== */
+
+.cap7-sinuca {
+    position: relative;
+
+    width:
+        min(
+            82%,
+            310px
+        );
+
+    height: 125px;
+
+    overflow: hidden;
+
+    border:
+        12px solid
+        rgba(
+            62,
+            39,
+            74,
+            0.96
+        );
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #123d3d,
+            #0b302f
+        );
+
+    box-shadow:
+        0 18px 35px
+        rgba(
+            0,
+            0,
+            0,
+            0.34
+        );
+}
+
+
+.cap7-bola-mini {
+    position: absolute;
+
+    width: 28px;
+
+    height: 28px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    color: #111;
+
+    background: #f5f3ef;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 4px 9px
+        rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+}
+
+
+.cap7-bola-mini.amarela {
+    left: 67%;
+
+    top: 25%;
+
+    border:
+        7px solid
+        #d6ad18;
+}
+
+
+.cap7-bola-mini.vinho {
+    left: 28%;
+
+    top: 60%;
+
+    border:
+        7px solid
+        #74233b;
+}
+
+
+.cap7-taco-mini {
+    position: absolute;
+
+    left: 13%;
+
+    top: 33%;
+
+    width: 115px;
+
+    height: 4px;
+
+    border-radius: 999px;
+
+    transform:
+        rotate(-17deg);
+
+    background:
+        linear-gradient(
+            to right,
+            #4b321f,
+            #b58a56,
+            #dfd5c5
+        );
+}
+
+
+/* =====================================================
+   COMIDA
+===================================================== */
+
+.cap7-comida {
+    width: 240px;
+
+    height: 130px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    gap: 40px;
+}
+
+
+.cap7-lanche {
+    position: relative;
+
+    width: 80px;
+
+    height: 70px;
+}
+
+
+.cap7-pao {
+    position: absolute;
+
+    left: 50%;
+
+    width: 75px;
+
+    transform:
+        translateX(-50%);
+
+    background: #96633d;
+}
+
+
+.cap7-pao.cima {
+    top: 4px;
+
+    height: 29px;
+
+    border-radius:
+        38px 38px
+        9px 9px;
+}
+
+
+.cap7-recheio {
+    position: absolute;
+
+    left: 50%;
+
+    top: 35px;
+
+    width: 74px;
+
+    height: 11px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 4px;
+
+    background: #793242;
+
+    box-shadow:
+        0 10px 0
+        #536a42;
+}
+
+
+.cap7-pao.baixo {
+    bottom: 0;
+
+    height: 16px;
+
+    border-radius:
+        4px 4px
+        15px 15px;
+}
+
+
+.cap7-churros {
+    position: relative;
+
+    width: 69px;
+
+    height: 87px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    gap: 5px;
+
+    padding-bottom: 4px;
+
+    border:
+        1px solid
+        rgba(
+            207,
+            177,
+            217,
+            0.13
+        );
+
+    border-radius:
+        5px 5px
+        18px 18px;
+
+    background:
+        rgba(
+            45,
+            32,
+            50,
+            0.62
+        );
+}
+
+
+.cap7-churros span {
+    width: 11px;
+
+    height: 72px;
+
+    border-radius:
+        7px 7px
+        3px 3px;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #9b6134
+            0 3px,
+
+            #70401f
+            3px 5px
+        );
+
+    transform-origin: bottom;
+}
+
+
+.cap7-churros span:nth-child(1) {
+    transform:
+        rotate(-8deg);
+}
+
+
+.cap7-churros span:nth-child(3) {
+    transform:
+        rotate(8deg);
+}
+
+
+/* =====================================================
+   CARRO
+===================================================== */
+
+.cap7-carro {
+    position: relative;
+
+    width:
+        min(
+            90%,
+            345px
+        );
+
+    height: 138px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(
+            193,
+            166,
+            213,
+            0.12
+        );
+
+    border-radius:
+        26px 26px
+        15px 15px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #11121a
+            0 62%,
+
+            #090a0e
+            62% 100%
+        );
+
+    box-shadow:
+        0 18px 42px
+        rgba(
+            0,
+            0,
+            0,
+            0.33
+        );
+}
+
+
+.cap7-parabrisa {
+    position: absolute;
+
+    left: 12%;
+
+    right: 12%;
+
+    top: 10px;
+
+    height: 73px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(
+            161,
+            146,
+            183,
+            0.1
+        );
+
+    border-radius:
+        22px 22px
+        5px 5px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #131827,
+            #0b0d14
+        );
+}
+
+
+.cap7-banco {
+    position: absolute;
+
+    bottom: -15px;
+
+    width: 80px;
+
+    height: 72px;
+
+    border-radius:
+        38px 38px
+        10px 10px;
+
+    background: #101015;
+}
+
+
+.cap7-banco.esquerda {
+    left: 47px;
+}
+
+
+.cap7-banco.direita {
+    right: 47px;
+}
+
+
+.cap7-parabrisa .estrela {
+    position: absolute;
+
+    width: 2px;
+
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    opacity: 0.75;
+}
+
+
+.cap7-parabrisa .e1 {
+    left: 17%;
+
+    top: 23%;
+}
+
+
+.cap7-parabrisa .e2 {
+    left: 39%;
+
+    top: 53%;
+}
+
+
+.cap7-parabrisa .e3 {
+    left: 57%;
+
+    top: 18%;
+}
+
+
+.cap7-parabrisa .e4 {
+    right: 20%;
+
+    top: 46%;
+}
+
+
+.cap7-parabrisa .e5 {
+    right: 9%;
+
+    top: 27%;
+}
+
+
+.cap7-ceu-roxo {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 120%,
+            rgba(
+                109,
+                61,
+                151,
+                0.19
+            ),
+            transparent 62%
+        );
+}
+
+
+/* =====================================================
+   RELÓGIOS
+===================================================== */
+
+.cap7-relogios {
+    width:
+        min(
+            96%,
+            390px
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 11px;
+}
+
+
+.cap7-relogios > span {
+    color: #756783;
+
+    opacity: 0.6;
+}
+
+
+.cap7-relogio {
+    position: relative;
+
+    width: 66px;
+
+    height: 66px;
+
+    border:
+        1px solid
+        rgba(
+            184,
+            155,
+            207,
+            0.18
+        );
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            22,
+            18,
+            30,
+            0.8
+        );
+
+    opacity: 0;
+
+    transform:
+        scale(0.9);
+
+    animation:
+        cap7Relogio
+        0.55s
+        ease
+        forwards;
+}
+
+
+.cap7-relogio.r2 {
+    animation-delay:
+        0.35s;
+}
+
+
+.cap7-relogio.r3 {
+    animation-delay:
+        0.7s;
+}
+
+
+.ponteiro-hora,
+.ponteiro-minuto {
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 2px;
+
+    transform-origin:
+        center bottom;
+
+    border-radius: 999px;
+
+    background: #b39bc2;
+}
+
+
+.ponteiro-hora {
+    height: 17px;
+
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(35deg);
+}
+
+
+.ponteiro-minuto {
+    height: 23px;
+
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(150deg);
+
+    opacity: 0.72;
+}
+
+
+.r2 .ponteiro-hora {
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(105deg);
+}
+
+
+.r2 .ponteiro-minuto {
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(230deg);
+}
+
+
+.r3 .ponteiro-hora {
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(180deg);
+}
+
+
+.r3 .ponteiro-minuto {
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(305deg);
+}
+
+
+.cap7-relogio .centro {
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 5px;
+
+    height: 5px;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    border-radius: 50%;
+
+    background: #cdb4da;
+}
+
+
+/* =====================================================
+   TEMPO
+===================================================== */
+
+.cap7-tempo {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.cap7-circulo-tempo {
+    position: relative;
+
+    width: 125px;
+
+    height: 125px;
+
+    border:
+        1px solid
+        rgba(
+            197,
+            168,
+            216,
+            0.17
+        );
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 35px
+        rgba(
+            106,
+            71,
+            139,
+            0.08
+        );
+}
+
+
+.cap7-ponteiro {
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 2px;
+
+    height: 40px;
+
+    transform-origin:
+        center bottom;
+
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(42deg);
+
+    border-radius: 999px;
+
+    background: #a58bb4;
+}
+
+
+.cap7-centro-tempo {
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 7px;
+
+    height: 7px;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    border-radius: 50%;
+
+    background: #c7a7da;
+
+    box-shadow:
+        0 0 16px
+        rgba(
+            189,
+            144,
+            215,
+            0.45
+        );
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+.cap7-final {
+    position: relative;
+
+    width: 125px;
+
+    height: 125px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+.cap7-final-orbita {
+    position: absolute;
+
+    inset: 0;
+
+    border:
+        1px solid
+        rgba(
+            192,
+            154,
+            216,
+            0.2
+        );
+
+    border-radius: 50%;
+
+    animation:
+        cap7Orbita
+        12s
+        linear
+        infinite;
+}
+
+
+.cap7-final-orbita::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -3px;
+
+    width: 6px;
+
+    height: 6px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #c5a7d6;
+
+    box-shadow:
+        0 0 14px
+        rgba(
+            185,
+            135,
+            213,
+            0.6
+        );
+}
+
+
+.cap7-final span {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 1.45rem;
+
+    letter-spacing: 0.22em;
+
+    color: #cab0d8;
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes cap7Entrada {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(14px)
+            scale(0.96);
+
+        filter:
+            blur(4px);
+    }
+
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+@keyframes cap7Relogio {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes cap7Orbita {
+
+    to {
+
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes bolaMemoria7 {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+        filter:
+            brightness(1);
+    }
+
+
+    60% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.65);
+
+        filter:
+            brightness(1.75)
+            drop-shadow(
+                0 0 24px
+                rgba(
+                    151,
+                    67,
+                    97,
+                    0.58
+                )
+            );
+    }
+
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.1);
+
+        opacity: 0;
+
+        filter:
+            blur(5px)
+            brightness(2);
+    }
+}
+
+
+/* =====================================================
+   CELULAR BAIXO
+===================================================== */
+
+@media
+(max-height: 700px)
+and
+(max-width: 767px) {
+
+    .cap7-conteudo {
+
+        justify-content:
+            flex-start;
+
+        padding-top:
+            30px;
+    }
+
+
+    #cap7Titulo {
+
+        font-size:
+            2.15rem;
+    }
+
+
+    .cap7-visual {
+
+        min-height:
+            105px;
+    }
+
+
+    .cap7-texto {
+
+        min-height:
+            70px;
+
+        margin:
+            10px 0 14px;
+
+        font-size:
+            1.05rem;
+    }
+
+
+    .cap7-carro {
+
+        height:
+            108px;
+    }
+
+
+    .cap7-sinuca {
+
+        height:
+            100px;
+    }
+
+
+    .cap7-noites {
+
+        transform:
+            scale(0.82);
+    }
+
+
+    .cap7-relogios {
+
+        transform:
+            scale(0.86);
+    }
+
+
+    .cap7-comida {
+
+        transform:
+            scale(0.86);
+    }
+}

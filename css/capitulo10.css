@@ -1,0 +1,3521 @@
+/* =====================================================
+   CAPÍTULO X
+   O QUE AINDA NÃO ACONTECEU
+===================================================== */
+
+#capitulo10 {
+    position: absolute;
+    inset: 0;
+
+    z-index: 80;
+
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    display: flex;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform:
+        scale(1.025);
+
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            rgba(99, 58, 135, 0.18),
+            transparent 45%
+        ),
+
+        radial-gradient(
+            ellipse at 20% 90%,
+            rgba(53, 48, 105, 0.1),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            180deg,
+            #060610 0%,
+            #05050c 55%,
+            #020204 100%
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease,
+        transform 1.2s ease,
+        background 2.5s ease;
+}
+
+
+#capitulo10.ativo {
+    opacity: 1;
+    visibility: visible;
+
+    transform:
+        scale(1);
+}
+
+
+/* =====================================================
+   FUNDO
+===================================================== */
+
+.cap10-fundo {
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   ESTRELAS
+===================================================== */
+
+.cap10-estrelas {
+    position: absolute;
+
+    inset: -8%;
+
+    pointer-events: none;
+
+    transition:
+        opacity 2.5s ease;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+.cap10-estrelas.estrelas-1 {
+    opacity: 0.62;
+
+    background:
+
+        radial-gradient(
+            circle at 4% 15%,
+            rgba(255,255,255,.9)
+            0 0.7px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 11% 70%,
+            rgba(217,196,233,.8)
+            0 0.8px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 17% 37%,
+            rgba(255,255,255,.85)
+            0 0.6px,
+            transparent 1.4px
+        ),
+
+        radial-gradient(
+            circle at 25% 9%,
+            rgba(190,143,219,.8)
+            0 0.9px,
+            transparent 1.6px
+        ),
+
+        radial-gradient(
+            circle at 31% 83%,
+            rgba(255,255,255,.8)
+            0 0.7px,
+            transparent 1.4px
+        ),
+
+        radial-gradient(
+            circle at 39% 52%,
+            rgba(215,185,235,.8)
+            0 0.8px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 47% 17%,
+            rgba(255,255,255,.9)
+            0 0.65px,
+            transparent 1.4px
+        ),
+
+        radial-gradient(
+            circle at 54% 70%,
+            rgba(187,154,220,.8)
+            0 0.85px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 62% 31%,
+            rgba(255,255,255,.8)
+            0 0.65px,
+            transparent 1.4px
+        ),
+
+        radial-gradient(
+            circle at 69% 89%,
+            rgba(219,201,234,.8)
+            0 0.75px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 76% 48%,
+            rgba(255,255,255,.85)
+            0 0.65px,
+            transparent 1.4px
+        ),
+
+        radial-gradient(
+            circle at 84% 13%,
+            rgba(194,153,226,.8)
+            0 0.85px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 91% 66%,
+            rgba(255,255,255,.85)
+            0 0.7px,
+            transparent 1.4px
+        ),
+
+        radial-gradient(
+            circle at 97% 36%,
+            rgba(217,190,233,.8)
+            0 0.7px,
+            transparent 1.4px
+        );
+
+    animation:
+        cap10Estrelas1
+        20s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.cap10-estrelas.estrelas-2 {
+    inset: -12%;
+
+    opacity: 0.33;
+
+    background:
+
+        radial-gradient(
+            circle at 8% 49%,
+            #fff 0 1px,
+            transparent 1.9px
+        ),
+
+        radial-gradient(
+            circle at 19% 16%,
+            #cda8e5 0 0.8px,
+            transparent 1.6px
+        ),
+
+        radial-gradient(
+            circle at 29% 64%,
+            #fff 0 0.9px,
+            transparent 1.7px
+        ),
+
+        radial-gradient(
+            circle at 43% 87%,
+            #b886da 0 0.8px,
+            transparent 1.6px
+        ),
+
+        radial-gradient(
+            circle at 57% 8%,
+            #fff 0 0.8px,
+            transparent 1.6px
+        ),
+
+        radial-gradient(
+            circle at 67% 57%,
+            #dcc3ed 0 1px,
+            transparent 1.8px
+        ),
+
+        radial-gradient(
+            circle at 79% 29%,
+            #fff 0 0.75px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 92% 82%,
+            #be91dd 0 0.9px,
+            transparent 1.7px
+        );
+
+    animation:
+        cap10Estrelas2
+        27s
+        linear
+        infinite
+        alternate;
+}
+
+
+/* =====================================================
+   NEBULOSAS
+===================================================== */
+
+.cap10-nebulosa {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter:
+        blur(75px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 2.4s ease;
+}
+
+
+.cap10-nebulosa.nebulosa-1 {
+    width: 65vw;
+    height: 45vh;
+
+    left: -28%;
+    top: 6%;
+
+    opacity: 0.42;
+
+    background:
+        rgba(111, 54, 153, 0.15);
+
+    animation:
+        cap10Nebulosa1
+        18s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.cap10-nebulosa.nebulosa-2 {
+    width: 60vw;
+    height: 50vh;
+
+    right: -25%;
+    bottom: -7%;
+
+    opacity: 0.35;
+
+    background:
+        rgba(58, 68, 135, 0.12);
+
+    animation:
+        cap10Nebulosa2
+        22s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+/* =====================================================
+   ESCURIDÃO FINAL
+===================================================== */
+
+.cap10-escuridao {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    background:
+        #010102;
+
+    transition:
+        opacity 2.6s ease;
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.cap10-conteudo {
+    position: relative;
+
+    z-index: 5;
+
+    width:
+        min(
+            92vw,
+            580px
+        );
+
+    min-height: 100%;
+
+    padding:
+        max(
+            42px,
+            env(safe-area-inset-top)
+        )
+        0
+        max(
+            32px,
+            env(safe-area-inset-bottom)
+        );
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+
+/* =====================================================
+   NÚMERO
+===================================================== */
+
+.cap10-numero {
+    margin-bottom: 10px;
+
+    color:
+        rgba(
+            192,
+            173,
+            204,
+            0.72
+        );
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size:
+        0.56rem;
+
+    letter-spacing:
+        0.4em;
+
+    transition:
+        opacity 1.4s ease;
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+#cap10Titulo {
+    max-width:
+        540px;
+
+    margin:
+        0 auto
+        20px;
+
+    color:
+        #ffffff;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            2.4rem,
+            9.5vw,
+            4rem
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        0.98;
+
+    text-shadow:
+        0 0 35px
+        rgba(
+            163,
+            105,
+            196,
+            0.16
+        );
+
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+
+/* =====================================================
+   VISUAL
+===================================================== */
+
+.cap10-visual {
+    position: relative;
+
+    width: 100%;
+
+    min-height:
+        190px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    perspective:
+        1100px;
+}
+
+
+.cap10-visual.entrando {
+    animation:
+        cap10EntradaVisual
+        0.95s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+}
+
+
+/* =====================================================
+   TEXTO
+===================================================== */
+
+.cap10-texto {
+    width: 100%;
+
+    max-width:
+        470px;
+
+    min-height:
+        120px;
+
+    margin:
+        14px auto
+        21px;
+
+    color:
+        #eeebf2;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            1.18rem,
+            5vw,
+            1.55rem
+        );
+
+    font-weight:
+        500;
+
+    line-height:
+        1.43;
+
+    transition:
+        opacity 1.4s ease,
+        transform 1.4s ease;
+}
+
+
+.cap10-texto strong {
+    color:
+        #dec4ea;
+
+    font-weight:
+        600;
+
+    text-shadow:
+        0 0 20px
+        rgba(
+            185,
+            126,
+            216,
+            0.2
+        );
+}
+
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.btn-cap10 {
+    min-height:
+        46px;
+
+    padding:
+        13px
+        25px;
+
+    border:
+        1px solid
+        rgba(
+            188,
+            150,
+            210,
+            0.36
+        );
+
+    border-radius:
+        999px;
+
+    outline:
+        none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(
+                72,
+                47,
+                91,
+                0.31
+            ),
+            rgba(
+                21,
+                18,
+                29,
+                0.36
+            )
+        );
+
+    color:
+        #f4eef7;
+
+    cursor:
+        pointer;
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size:
+        0.67rem;
+
+    letter-spacing:
+        0.13em;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease,
+        transform 0.25s ease,
+        border-color 0.3s ease;
+}
+
+
+.btn-cap10:hover {
+    border-color:
+        rgba(
+            216,
+            180,
+            235,
+            0.58
+        );
+}
+
+
+.btn-cap10:active {
+    transform:
+        scale(0.96);
+}
+
+
+.btn-cap10.oculto {
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   ETAPA 0
+   LINHA DO TEMPO
+===================================================== */
+
+.cap10-linha-tempo {
+    position: relative;
+
+    width:
+        min(
+            94%,
+            445px
+        );
+
+    height:
+        140px;
+
+    padding:
+        0 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.cap10-trilho {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    top: 50%;
+
+    height:
+        1px;
+
+    transform:
+        translateY(-50%)
+        scaleX(0);
+
+    transform-origin:
+        left center;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(
+                170,
+                126,
+                196,
+                0.12
+            ),
+            rgba(
+                218,
+                186,
+                234,
+                0.64
+            ),
+            rgba(
+                170,
+                126,
+                196,
+                0.12
+            )
+        );
+
+    animation:
+        cap10DesenharLinha
+        1.7s
+        ease
+        forwards;
+}
+
+
+.cap10-linha-tempo span {
+    position: relative;
+
+    z-index: 2;
+
+    width:
+        29px;
+
+    height:
+        29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    transform:
+        scale(0.6);
+
+    border:
+        1px solid
+        rgba(
+            211,
+            184,
+            225,
+            0.22
+        );
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(
+            9,
+            8,
+            14,
+            0.94
+        );
+
+    color:
+        #cdb9d8;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        0.67rem;
+
+    box-shadow:
+        0 0 15px
+        rgba(
+            158,
+            104,
+            187,
+            0.05
+        );
+
+    animation:
+        cap10PontoTimeline
+        0.55s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+
+    animation-delay:
+        calc(
+            0.25s +
+            var(--i) *
+            0.1s
+        );
+}
+
+
+/* =====================================================
+   ETAPA 1
+   FUTURO VAZIO
+===================================================== */
+
+.cap10-linha-futuro {
+    position: relative;
+
+    width:
+        min(
+            92%,
+            440px
+        );
+
+    height:
+        150px;
+}
+
+
+.cap10-passado-curto {
+    position: absolute;
+
+    left: 4%;
+    top: 50%;
+
+    display: flex;
+    align-items: center;
+
+    gap:
+        6px;
+
+    transform:
+        translateY(-50%);
+}
+
+
+.cap10-passado-curto span {
+    width:
+        28px;
+
+    height:
+        28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(
+            201,
+            170,
+            217,
+            0.18
+        );
+
+    border-radius:
+        50%;
+
+    color:
+        rgba(
+            215,
+            198,
+            225,
+            0.68
+        );
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        0.62rem;
+}
+
+
+.cap10-passado-curto i {
+    width:
+        13px;
+
+    height:
+        1px;
+
+    background:
+        rgba(
+            199,
+            167,
+            215,
+            0.18
+        );
+}
+
+
+.cap10-caminho-vazio {
+    position: absolute;
+
+    left: 43%;
+    right: 16%;
+    top: 50%;
+
+    height:
+        1px;
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left center;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(
+                208,
+                180,
+                223,
+                0.46
+            ),
+            rgba(
+                187,
+                151,
+                209,
+                0.06
+            )
+        );
+
+    animation:
+        cap10CaminhoFuturo
+        1.5s
+        0.35s
+        ease
+        forwards;
+}
+
+
+.cap10-interrogacao {
+    position: absolute;
+
+    right: 4%;
+    top: 50%;
+
+    width:
+        44px;
+
+    height:
+        44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    transform:
+        translateY(-50%)
+        scale(0.5);
+
+    border:
+        1px solid
+        rgba(
+            210,
+            178,
+            228,
+            0.24
+        );
+
+    border-radius:
+        50%;
+
+    color:
+        #dfc5ec;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        1.55rem;
+
+    box-shadow:
+        0 0 30px
+        rgba(
+            151,
+            93,
+            182,
+            0.15
+        );
+
+    animation:
+        cap10Interrogacao
+        0.8s
+        1.2s
+        ease
+        forwards;
+}
+
+
+/* =====================================================
+   ETAPA 2
+   CONSTELAÇÃO DO FUTURO
+===================================================== */
+
+.cap10-constelacao-futuro {
+    position: relative;
+
+    width:
+        min(
+            92vw,
+            390px
+        );
+
+    height:
+        250px;
+}
+
+
+.cap10-orbita-futura {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border:
+        1px solid
+        rgba(
+            184,
+            142,
+            209,
+            0.13
+        );
+
+    border-radius:
+        50%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+.cap10-orbita-futura.o1 {
+    width:
+        180px;
+
+    height:
+        180px;
+
+    animation:
+        cap10OrbitaFutura1
+        15s
+        linear
+        infinite;
+}
+
+
+.cap10-orbita-futura.o2 {
+    width:
+        260px;
+
+    height:
+        220px;
+
+    animation:
+        cap10OrbitaFutura2
+        21s
+        linear
+        infinite;
+}
+
+
+.cap10-destino {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap:
+        4px;
+
+    color:
+        rgba(
+            229,
+            213,
+            238,
+            0.78
+        );
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    opacity: 0;
+
+    animation:
+        cap10DestinoEntrando
+        0.8s
+        ease
+        forwards;
+}
+
+
+.cap10-destino .icone {
+    width:
+        31px;
+
+    height:
+        31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(
+            207,
+            173,
+            225,
+            0.19
+        );
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(
+            10,
+            8,
+            15,
+            0.8
+        );
+
+    color:
+        #d9bde6;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+}
+
+
+.cap10-destino small {
+    font-size:
+        0.5rem;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+}
+
+
+.destino-restaurante {
+    left: 10%;
+    top: 20%;
+
+    animation-delay:
+        0.15s;
+}
+
+
+.destino-trilha {
+    right: 11%;
+    top: 15%;
+
+    animation-delay:
+        0.3s;
+}
+
+
+.destino-parque {
+    left: 3%;
+    top: 58%;
+
+    animation-delay:
+        0.45s;
+}
+
+
+.destino-praia {
+    right: 2%;
+    top: 56%;
+
+    animation-delay:
+        0.6s;
+}
+
+
+.destino-viagem {
+    left: 26%;
+    bottom: 2%;
+
+    animation-delay:
+        0.75s;
+}
+
+
+.destino-sinuca {
+    right: 25%;
+    bottom: 1%;
+
+    animation-delay:
+        0.9s;
+}
+
+
+.cap10-destino
+.bola-mini {
+    background:
+        #141414;
+
+    color:
+        #ffffff;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        0.65rem;
+
+    font-weight:
+        700;
+}
+
+
+.cap10-nucleo-futuro {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width:
+        62px;
+
+    height:
+        62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform:
+        translate(-50%, -50%);
+
+    border:
+        1px solid
+        rgba(
+            218,
+            186,
+            235,
+            0.29
+        );
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(
+                119,
+                72,
+                145,
+                0.28
+            ),
+            rgba(
+                8,
+                7,
+                13,
+                0.86
+            )
+        );
+
+    color:
+        #e9dbee;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        1rem;
+
+    box-shadow:
+        0 0 38px
+        rgba(
+            155,
+            93,
+            185,
+            0.15
+        );
+
+    animation:
+        cap10Nucleo
+        2.8s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   ETAPA 3
+   DOIS MUNDOS
+===================================================== */
+
+.cap10-dois-mundos {
+    position: relative;
+
+    width:
+        min(
+            92%,
+            430px
+        );
+
+    height:
+        210px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.cap10-mundo {
+    position: relative;
+
+    width:
+        145px;
+
+    min-height:
+        125px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap:
+        7px;
+
+    opacity: 0;
+
+    border:
+        1px solid
+        rgba(
+            194,
+            158,
+            215,
+            0.13
+        );
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(
+                91,
+                57,
+                112,
+                0.14
+            ),
+            transparent 70%
+        );
+
+    animation:
+        cap10MundoEntrando
+        1s
+        ease
+        forwards;
+}
+
+
+.cap10-mundo.mundo-a {
+    animation-delay:
+        0.15s;
+}
+
+
+.cap10-mundo.mundo-b {
+    animation-delay:
+        0.55s;
+}
+
+
+.cap10-mundo strong {
+    color:
+        #e3d1ea;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        1.3rem;
+
+    font-weight:
+        500;
+}
+
+
+.cap10-mundo small {
+    width:
+        115px;
+
+    color:
+        rgba(
+            211,
+            195,
+            220,
+            0.52
+        );
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size:
+        0.45rem;
+
+    line-height:
+        1.5;
+
+    letter-spacing:
+        0.05em;
+}
+
+
+.cap10-arco {
+    position: absolute;
+
+    inset: 5px;
+
+    border:
+        1px dashed
+        rgba(
+            197,
+            155,
+            218,
+            0.12
+        );
+
+    border-radius:
+        50%;
+
+    animation:
+        cap10GirarArco
+        15s
+        linear
+        infinite;
+}
+
+
+.cap10-encontro-mundos {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+.cap10-encontro-mundos span {
+    display: block;
+
+    width:
+        9px;
+
+    height:
+        9px;
+
+    border-radius:
+        50%;
+
+    background:
+        #d7bae5;
+
+    box-shadow:
+        0 0 12px #a86dc5,
+        0 0 35px
+        rgba(
+            165,
+            104,
+            195,
+            0.45
+        );
+
+    animation:
+        cap10Encontro
+        2.2s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   ETAPA 4
+   ARQUITETURA
+===================================================== */
+
+.cap10-planta {
+    position: relative;
+
+    width:
+        min(
+            90%,
+            390px
+        );
+
+    height:
+        225px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(
+            190,
+            157,
+            207,
+            0.13
+        );
+
+    border-radius:
+        18px;
+
+    background:
+        rgba(
+            5,
+            8,
+            15,
+            0.52
+        );
+
+    box-shadow:
+        inset 0 0 35px
+        rgba(
+            70,
+            53,
+            105,
+            0.1
+        );
+}
+
+
+.cap10-grid-planta {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.2;
+
+    background-image:
+        linear-gradient(
+            rgba(
+                164,
+                133,
+                191,
+                0.13
+            )
+            1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(
+                164,
+                133,
+                191,
+                0.13
+            )
+            1px,
+            transparent 1px
+        );
+
+    background-size:
+        20px 20px;
+}
+
+
+.cap10-parede {
+    position: absolute;
+
+    background:
+        rgba(
+            211,
+            184,
+            226,
+            0.7
+        );
+
+    box-shadow:
+        0 0 9px
+        rgba(
+            172,
+            117,
+            200,
+            0.2
+        );
+
+    transform-origin:
+        left center;
+
+    animation:
+        cap10DesenharParede
+        1.2s
+        ease
+        forwards;
+
+    transform:
+        scaleX(0);
+}
+
+
+.parede-1 {
+    left: 13%;
+    top: 24%;
+
+    width: 45%;
+    height: 1px;
+
+    animation-delay:
+        0.1s;
+}
+
+
+.parede-2 {
+    left: 13%;
+    top: 24%;
+
+    width: 1px;
+    height: 49%;
+
+    transform-origin:
+        top center;
+
+    animation:
+        cap10DesenharParedeVertical
+        1.1s
+        0.35s
+        ease
+        forwards;
+
+    transform:
+        scaleY(0);
+}
+
+
+.parede-3 {
+    left: 13%;
+    top: 73%;
+
+    width: 55%;
+    height: 1px;
+
+    animation-delay:
+        0.55s;
+}
+
+
+.parede-4 {
+    left: 58%;
+    top: 24%;
+
+    width: 1px;
+    height: 25%;
+
+    transform-origin:
+        top center;
+
+    animation:
+        cap10DesenharParedeVertical
+        1.1s
+        0.7s
+        ease
+        forwards;
+
+    transform:
+        scaleY(0);
+}
+
+
+.parede-5 {
+    left: 37%;
+    top: 48%;
+
+    width: 21%;
+    height: 1px;
+
+    animation-delay:
+        0.85s;
+}
+
+
+.cap10-medida {
+    position: absolute;
+
+    color:
+        rgba(
+            210,
+            184,
+            224,
+            0.48
+        );
+
+    font-family:
+        'Montserrat',
+        sans-serif;
+
+    font-size:
+        0.48rem;
+
+    letter-spacing:
+        0.11em;
+
+    opacity: 0;
+
+    animation:
+        cap10Medida
+        0.7s
+        1.2s
+        ease
+        forwards;
+}
+
+
+.medida-1 {
+    left: 17%;
+    bottom: 12%;
+
+    font-size:
+        1rem;
+}
+
+
+.medida-2 {
+    right: 9%;
+    top: 12%;
+
+    text-transform:
+        uppercase;
+}
+
+
+.cap10-predio-final {
+    position: absolute;
+
+    right: 10%;
+    bottom: 19%;
+
+    width:
+        85px;
+
+    height:
+        120px;
+
+    display: flex;
+    align-items: flex-end;
+
+    gap:
+        4px;
+
+    opacity: 0;
+
+    animation:
+        cap10Predio
+        1.2s
+        1.35s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+.cap10-predio-final span {
+    flex: 1;
+
+    border:
+        1px solid
+        rgba(
+            205,
+            175,
+            220,
+            0.42
+        );
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(
+                110,
+                72,
+                135,
+                0.22
+            ),
+            rgba(
+                15,
+                13,
+                22,
+                0.4
+            )
+        );
+}
+
+
+.cap10-predio-final span:nth-child(1) {
+    height: 40%;
+}
+
+
+.cap10-predio-final span:nth-child(2) {
+    height: 65%;
+}
+
+
+.cap10-predio-final span:nth-child(3) {
+    height: 88%;
+}
+
+
+.cap10-predio-final span:nth-child(4) {
+    height: 55%;
+}
+
+
+/* =====================================================
+   ETAPA 5
+   TEMPO + ESPAÇO
+===================================================== */
+
+.cap10-tempo-cosmos {
+    position: relative;
+
+    width:
+        280px;
+
+    height:
+        240px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.cap10-relogio-cosmico {
+    position: relative;
+
+    z-index: 5;
+
+    width:
+        105px;
+
+    height:
+        105px;
+
+    border:
+        1px solid
+        rgba(
+            218,
+            190,
+            232,
+            0.32
+        );
+
+    border-radius:
+        50%;
+
+    box-shadow:
+        inset 0 0 30px
+        rgba(
+            144,
+            91,
+            173,
+            0.08
+        ),
+
+        0 0 32px
+        rgba(
+            137,
+            87,
+            165,
+            0.12
+        );
+}
+
+
+.cap10-relogio-cosmico
+.marca {
+    position: absolute;
+
+    background:
+        rgba(
+            223,
+            200,
+            234,
+            0.55
+        );
+}
+
+
+.cap10-relogio-cosmico
+.m1,
+.cap10-relogio-cosmico
+.m3 {
+    left: 50%;
+
+    width:
+        1px;
+
+    height:
+        7px;
+
+    transform:
+        translateX(-50%);
+}
+
+
+.cap10-relogio-cosmico
+.m1 {
+    top: 7px;
+}
+
+
+.cap10-relogio-cosmico
+.m3 {
+    bottom: 7px;
+}
+
+
+.cap10-relogio-cosmico
+.m2,
+.cap10-relogio-cosmico
+.m4 {
+    top: 50%;
+
+    width:
+        7px;
+
+    height:
+        1px;
+
+    transform:
+        translateY(-50%);
+}
+
+
+.cap10-relogio-cosmico
+.m2 {
+    right: 7px;
+}
+
+
+.cap10-relogio-cosmico
+.m4 {
+    left: 7px;
+}
+
+
+.cap10-relogio-cosmico
+.ponteiro {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width:
+        1px;
+
+    transform-origin:
+        center bottom;
+
+    background:
+        linear-gradient(
+            to top,
+            #d9b9e8,
+            rgba(
+                216,
+                185,
+                231,
+                0.25
+            )
+        );
+}
+
+
+.cap10-relogio-cosmico
+.ponteiro.hora {
+    height:
+        27px;
+
+    transform:
+        translate(-50%, -100%)
+        rotate(38deg);
+
+    animation:
+        cap10Hora
+        20s
+        linear
+        infinite;
+}
+
+
+.cap10-relogio-cosmico
+.ponteiro.minuto {
+    height:
+        40px;
+
+    transform:
+        translate(-50%, -100%)
+        rotate(115deg);
+
+    animation:
+        cap10Minuto
+        9s
+        linear
+        infinite;
+}
+
+
+.cap10-relogio-cosmico b {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width:
+        7px;
+
+    height:
+        7px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius:
+        50%;
+
+    background:
+        #e3c9ef;
+
+    box-shadow:
+        0 0 13px
+        rgba(
+            197,
+            143,
+            221,
+            0.48
+        );
+}
+
+
+.cap10-orbita-tempo {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border:
+        1px solid
+        rgba(
+            191,
+            149,
+            212,
+            0.13
+        );
+
+    border-radius:
+        50%;
+}
+
+
+.cap10-orbita-tempo
+span {
+    position: absolute;
+
+    left: 50%;
+    top: -3px;
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    border-radius:
+        50%;
+
+    background:
+        #cfafe0;
+
+    box-shadow:
+        0 0 9px
+        rgba(
+            193,
+            134,
+            218,
+            0.4
+        );
+}
+
+
+.cap10-orbita-tempo.orbita-1 {
+    width:
+        150px;
+
+    height:
+        150px;
+
+    margin:
+        -75px 0 0 -75px;
+
+    animation:
+        cap10Girar1
+        10s
+        linear
+        infinite;
+}
+
+
+.cap10-orbita-tempo.orbita-2 {
+    width:
+        205px;
+
+    height:
+        135px;
+
+    margin:
+        -67.5px 0 0 -102.5px;
+
+    transform:
+        rotate(32deg);
+
+    animation:
+        cap10Girar2
+        15s
+        linear
+        infinite;
+}
+
+
+.cap10-orbita-tempo.orbita-3 {
+    width:
+        240px;
+
+    height:
+        185px;
+
+    margin:
+        -92.5px 0 0 -120px;
+
+    transform:
+        rotate(-24deg);
+
+    animation:
+        cap10Girar3
+        22s
+        linear
+        infinite;
+}
+
+
+/* =====================================================
+   ETAPA 6
+   LINHA FINAL
+===================================================== */
+
+.cap10-linha-escolha {
+    position: relative;
+
+    width:
+        min(
+            94%,
+            455px
+        );
+
+    height:
+        180px;
+}
+
+
+.cap10-capitulos-mini {
+    position: absolute;
+
+    left: 3%;
+    right: 31%;
+    top: 50%;
+
+    display: flex;
+    justify-content: space-between;
+
+    transform:
+        translateY(-50%);
+}
+
+
+.cap10-capitulos-mini span {
+    color:
+        rgba(
+            211,
+            190,
+            222,
+            0.63
+        );
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        0.58rem;
+
+    opacity: 0;
+
+    animation:
+        cap10MiniCapitulo
+        0.5s
+        ease
+        forwards;
+}
+
+
+.cap10-capitulos-mini span:nth-child(1) {
+    animation-delay: .1s;
+}
+
+
+.cap10-capitulos-mini span:nth-child(2) {
+    animation-delay: .18s;
+}
+
+
+.cap10-capitulos-mini span:nth-child(3) {
+    animation-delay: .26s;
+}
+
+
+.cap10-capitulos-mini span:nth-child(4) {
+    animation-delay: .34s;
+}
+
+
+.cap10-capitulos-mini span:nth-child(5) {
+    animation-delay: .42s;
+}
+
+
+.cap10-capitulos-mini span:nth-child(6) {
+    animation-delay: .50s;
+}
+
+
+.cap10-capitulos-mini span:nth-child(7) {
+    animation-delay: .58s;
+}
+
+
+.cap10-capitulos-mini span:nth-child(8) {
+    animation-delay: .66s;
+}
+
+
+.cap10-capitulos-mini span:nth-child(9) {
+    animation-delay: .74s;
+}
+
+
+.cap10-traco-escolha {
+    position: absolute;
+
+    left: 68%;
+    right: 13%;
+    top: 50%;
+
+    height:
+        1px;
+
+    transform:
+        scaleX(0);
+
+    transform-origin:
+        left center;
+
+    background:
+        linear-gradient(
+            to right,
+            rgba(
+                219,
+                191,
+                233,
+                0.44
+            ),
+            rgba(
+                195,
+                157,
+                213,
+                0.06
+            )
+        );
+
+    animation:
+        cap10TracoFinal
+        1.2s
+        0.85s
+        ease
+        forwards;
+}
+
+
+.cap10-ponto-futuro {
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform:
+        translateY(-50%)
+        scale(0);
+
+    border:
+        1px solid
+        rgba(
+            214,
+            181,
+            230,
+            0.25
+        );
+
+    border-radius:
+        50%;
+
+    box-shadow:
+        0 0 29px
+        rgba(
+            160,
+            101,
+            189,
+            0.12
+        );
+
+    animation:
+        cap10PontoFuturo
+        0.8s
+        1.45s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+.cap10-ponto-futuro span {
+    color:
+        #e2caed;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        1.55rem;
+}
+
+
+/* =====================================================
+   ÚLTIMO PONTO
+===================================================== */
+
+.cap10-ultimo-ponto {
+    position: relative;
+
+    width:
+        150px;
+
+    height:
+        150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.cap10-ultimo-ponto::before,
+.cap10-ultimo-ponto::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 50%;
+
+    border:
+        1px solid
+        rgba(
+            201,
+            163,
+            220,
+            0.15
+        );
+
+    border-radius:
+        50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    animation:
+        cap10UltimoPulso
+        2.5s
+        ease-out
+        infinite;
+}
+
+
+.cap10-ultimo-ponto::after {
+    animation-delay:
+        1.1s;
+}
+
+
+.cap10-ultimo-ponto span {
+    width:
+        8px;
+
+    height:
+        8px;
+
+    border-radius:
+        50%;
+
+    background:
+        #dabfe7;
+
+    box-shadow:
+        0 0 14px
+        rgba(
+            202,
+            146,
+            225,
+            0.55
+        ),
+
+        0 0 38px
+        rgba(
+            173,
+            105,
+            201,
+            0.28
+        );
+}
+
+
+/* =====================================================
+   RESPIRO FINAL
+===================================================== */
+
+.cap10-respiro-final {
+    width:
+        130px;
+
+    height:
+        130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.cap10-respiro-final span {
+    width:
+        4px;
+
+    height:
+        4px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(
+            226,
+            209,
+            234,
+            0.7
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(
+            197,
+            158,
+            214,
+            0.4
+        );
+
+    animation:
+        cap10Respirar
+        2.4s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   PRÉ-FINAL
+===================================================== */
+
+#capitulo10.pre-final
+.cap10-estrelas {
+    opacity:
+        0.2;
+}
+
+
+#capitulo10.pre-final
+.cap10-nebulosa {
+    opacity:
+        0.12;
+}
+
+
+/* =====================================================
+   QUASE ESCURO
+===================================================== */
+
+#capitulo10.quase-escuro
+.cap10-escuridao {
+    opacity:
+        0.84;
+}
+
+
+#capitulo10.quase-escuro
+.cap10-estrelas {
+    opacity:
+        0.07;
+}
+
+
+#capitulo10.quase-escuro
+.cap10-nebulosa {
+    opacity:
+        0.03;
+}
+
+
+#capitulo10.quase-escuro
+.cap10-numero {
+    opacity:
+        0.1;
+}
+
+
+/* =====================================================
+   FINAL
+===================================================== */
+
+#capitulo10.final {
+    background:
+        #010102;
+}
+
+
+#capitulo10.final
+.cap10-escuridao {
+    opacity:
+        1;
+}
+
+
+#capitulo10.final
+.cap10-estrelas,
+#capitulo10.final
+.cap10-nebulosa {
+    opacity:
+        0;
+}
+
+
+#capitulo10.final
+.cap10-numero {
+    opacity:
+        0;
+}
+
+
+#capitulo10.final
+.cap10-conteudo {
+    justify-content:
+        center;
+}
+
+
+#capitulo10.final
+.cap10-visual {
+    min-height:
+        0;
+
+    height:
+        0;
+}
+
+
+#capitulo10.final
+.cap10-texto {
+    min-height:
+        auto;
+
+    margin:
+        0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.cap10-agora {
+    display: block;
+
+    color:
+        #ffffff !important;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(
+            2rem,
+            9vw,
+            3.5rem
+        );
+
+    font-weight:
+        500 !important;
+
+    line-height:
+        1.05;
+
+    letter-spacing:
+        0.01em;
+
+    opacity: 0;
+
+    transform:
+        translateY(10px)
+        scale(0.97);
+
+    text-shadow:
+        0 0 28px
+        rgba(
+            209,
+            180,
+            224,
+            0.13
+        ) !important;
+
+    animation:
+        cap10Agora
+        2s
+        0.35s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+/* =====================================================
+   BOLA 10
+===================================================== */
+
+.bola-listrada-azul {
+    background:
+
+        linear-gradient(
+            to bottom,
+
+            #eeeeea
+            0%,
+
+            #eeeeea
+            25%,
+
+            #3158b6
+            25%,
+
+            #17387e
+            75%,
+
+            #eeeeea
+            75%,
+
+            #d9d8d2
+            100%
+        );
+}
+
+
+#bola10.virando-memoria-10 {
+    animation:
+        cap10BolaMemoria
+        0.78s
+        cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        )
+        forwards;
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes cap10EntradaVisual {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes cap10Estrelas1 {
+
+    from {
+        transform:
+            translate(
+                -7px,
+                -4px
+            )
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate(
+                10px,
+                7px
+            )
+            scale(1.035);
+    }
+}
+
+
+@keyframes cap10Estrelas2 {
+
+    from {
+        transform:
+            translate(
+                8px,
+                -8px
+            )
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(
+                -9px,
+                9px
+            )
+            rotate(1deg);
+    }
+}
+
+
+@keyframes cap10Nebulosa1 {
+
+    from {
+        transform:
+            translate(
+                -5%,
+                -2%
+            )
+            scale(0.95);
+    }
+
+    to {
+        transform:
+            translate(
+                8%,
+                7%
+            )
+            scale(1.08);
+    }
+}
+
+
+@keyframes cap10Nebulosa2 {
+
+    from {
+        transform:
+            translate(
+                4%,
+                3%
+            )
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate(
+                -8%,
+                -5%
+            )
+            scale(1.12);
+    }
+}
+
+
+@keyframes cap10DesenharLinha {
+
+    to {
+        transform:
+            translateY(-50%)
+            scaleX(1);
+    }
+}
+
+
+@keyframes cap10PontoTimeline {
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes cap10CaminhoFuturo {
+
+    to {
+        transform:
+            scaleX(1);
+    }
+}
+
+
+@keyframes cap10Interrogacao {
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(-50%)
+            scale(1);
+    }
+}
+
+
+@keyframes cap10DestinoEntrando {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(8px)
+            scale(0.88);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes cap10OrbitaFutura1 {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+
+@keyframes cap10OrbitaFutura2 {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(20deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(-340deg);
+    }
+}
+
+
+@keyframes cap10Nucleo {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.96);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.04);
+    }
+}
+
+
+@keyframes cap10MundoEntrando {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.78);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes cap10GirarArco {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes cap10Encontro {
+
+    0%,
+    100% {
+        transform:
+            scale(0.75);
+
+        opacity:
+            0.55;
+    }
+
+    50% {
+        transform:
+            scale(1.25);
+
+        opacity:
+            1;
+    }
+}
+
+
+@keyframes cap10DesenharParede {
+
+    to {
+        transform:
+            scaleX(1);
+    }
+}
+
+
+@keyframes cap10DesenharParedeVertical {
+
+    to {
+        transform:
+            scaleY(1);
+    }
+}
+
+
+@keyframes cap10Medida {
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes cap10Predio {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes cap10Hora {
+
+    from {
+        transform:
+            translate(-50%, -100%)
+            rotate(38deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -100%)
+            rotate(398deg);
+    }
+}
+
+
+@keyframes cap10Minuto {
+
+    from {
+        transform:
+            translate(-50%, -100%)
+            rotate(115deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -100%)
+            rotate(475deg);
+    }
+}
+
+
+@keyframes cap10Girar1 {
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+@keyframes cap10Girar2 {
+
+    from {
+        transform:
+            rotate(32deg);
+    }
+
+    to {
+        transform:
+            rotate(392deg);
+    }
+}
+
+
+@keyframes cap10Girar3 {
+
+    from {
+        transform:
+            rotate(-24deg);
+    }
+
+    to {
+        transform:
+            rotate(-384deg);
+    }
+}
+
+
+@keyframes cap10MiniCapitulo {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+@keyframes cap10TracoFinal {
+
+    to {
+        transform:
+            scaleX(1);
+    }
+}
+
+
+@keyframes cap10PontoFuturo {
+
+    to {
+        transform:
+            translateY(-50%)
+            scale(1);
+    }
+}
+
+
+@keyframes cap10UltimoPulso {
+
+    0% {
+        width:
+            10px;
+
+        height:
+            10px;
+
+        opacity:
+            0.5;
+    }
+
+    100% {
+        width:
+            145px;
+
+        height:
+            145px;
+
+        opacity:
+            0;
+    }
+}
+
+
+@keyframes cap10Respirar {
+
+    0%,
+    100% {
+        transform:
+            scale(0.65);
+
+        opacity:
+            0.35;
+    }
+
+    50% {
+        transform:
+            scale(1.3);
+
+        opacity:
+            0.9;
+    }
+}
+
+
+@keyframes cap10Agora {
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes cap10BolaMemoria {
+
+    0% {
+        opacity: 1;
+
+        filter:
+            brightness(1);
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    55% {
+        opacity: 1;
+
+        filter:
+            brightness(1.6)
+            drop-shadow(
+                0 0 10px
+                rgba(
+                    130,
+                    158,
+                    255,
+                    0.5
+                )
+            );
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.18);
+    }
+
+    100% {
+        opacity: 0;
+
+        filter:
+            brightness(2)
+            blur(3px);
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.55);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media
+(max-width: 767px) {
+
+    .cap10-conteudo {
+        width:
+            min(
+                92vw,
+                500px
+            );
+
+        padding-top:
+            max(
+                35px,
+                env(
+                    safe-area-inset-top
+                )
+            );
+    }
+
+
+    #cap10Titulo {
+        margin-bottom:
+            12px;
+    }
+
+
+    .cap10-visual {
+        min-height:
+            170px;
+    }
+
+
+    .cap10-texto {
+        margin-top:
+            10px;
+
+        min-height:
+            105px;
+
+        line-height:
+            1.38;
+    }
+
+
+    .cap10-linha-tempo {
+        width:
+            95%;
+    }
+
+
+    .cap10-linha-tempo span {
+        width:
+            24px;
+
+        height:
+            24px;
+
+        font-size:
+            0.56rem;
+    }
+
+
+    .cap10-constelacao-futuro {
+        height:
+            225px;
+    }
+
+
+    .cap10-dois-mundos {
+        height:
+            185px;
+    }
+
+
+    .cap10-mundo {
+        width:
+            125px;
+
+        min-height:
+            115px;
+    }
+
+
+    .cap10-mundo small {
+        width:
+            100px;
+
+        font-size:
+            0.4rem;
+    }
+
+
+    .cap10-planta {
+        height:
+            195px;
+    }
+
+
+    .cap10-tempo-cosmos {
+        height:
+            200px;
+
+        transform:
+            scale(0.9);
+    }
+
+
+    .cap10-capitulos-mini {
+        right:
+            32%;
+    }
+}
+
+
+/* =====================================================
+   CELULARES MAIS BAIXOS
+===================================================== */
+
+@media
+(max-height: 720px)
+and
+(max-width: 767px) {
+
+    .cap10-conteudo {
+        justify-content:
+            flex-start;
+
+        padding-top:
+            27px;
+    }
+
+
+    #cap10Titulo {
+        font-size:
+            clamp(
+                2rem,
+                8.5vw,
+                2.8rem
+            );
+
+        margin-bottom:
+            8px;
+    }
+
+
+    .cap10-visual {
+        min-height:
+            145px;
+    }
+
+
+    .cap10-texto {
+        min-height:
+            85px;
+
+        margin:
+            6px auto
+            13px;
+
+        font-size:
+            1.08rem;
+    }
+
+
+    .cap10-constelacao-futuro {
+        height:
+            180px;
+
+        transform:
+            scale(0.82);
+    }
+
+
+    .cap10-dois-mundos {
+        height:
+            155px;
+
+        transform:
+            scale(0.86);
+    }
+
+
+    .cap10-planta {
+        height:
+            165px;
+
+        transform:
+            scale(0.9);
+    }
+
+
+    .cap10-tempo-cosmos {
+        height:
+            155px;
+
+        transform:
+            scale(0.73);
+    }
+
+
+    .cap10-linha-escolha {
+        height:
+            140px;
+    }
+}
+
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media
+(min-width: 900px) {
+
+    .cap10-conteudo {
+        width:
+            min(
+                80vw,
+                650px
+            );
+    }
+
+
+    .cap10-visual {
+        min-height:
+            205px;
+    }
+
+
+    .cap10-texto {
+        max-width:
+            500px;
+    }
+}
