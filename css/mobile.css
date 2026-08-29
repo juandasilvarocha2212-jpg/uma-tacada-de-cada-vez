@@ -1,0 +1,161 @@
+/* =====================================================
+   UMA TACADA DE CADA VEZ — COMPATIBILIDADE MOBILE
+
+   Este arquivo deve ser carregado DEPOIS de todos os
+   outros CSS. Ele não altera a física da mesa, posições,
+   capítulos, músicas ou textos.
+===================================================== */
+
+:root {
+    color-scheme: dark;
+    --mobile-fundo: #05030a;
+}
+
+html {
+    background-color: var(--mobile-fundo);
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body,
+#inicio {
+    background-color: var(--mobile-fundo);
+}
+
+/*
+   Se o sistema do celular estiver em modo claro, o site
+   continua sendo renderizado com a identidade escura.
+*/
+@media (prefers-color-scheme: light) {
+    html,
+    body,
+    #inicio {
+        background-color: #05030a;
+        color: #ffffff;
+        color-scheme: dark;
+    }
+}
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 767px) {
+
+    /*
+       Evita que modos de alto contraste/cores forçadas
+       substituam a paleta do site e dos elementos visuais.
+    */
+    #inicio,
+    #app,
+    #sinuca,
+    #capitulo2,
+    #capitulo3,
+    #capitulo4,
+    #capitulo5,
+    #capitulo6,
+    #capitulo7,
+    #capitulo8,
+    #capitulo9,
+    #capitulo10 {
+        forced-color-adjust: none;
+    }
+
+    /*
+       Estado normal da mesa: nenhuma camada externa de
+       brilho/opacidade deve alterar a cor original.
+    */
+    .mesa-container {
+        opacity: 1;
+        filter: none;
+    }
+
+    /*
+       IMPORTANTE:
+       O CSS original reduz a mesa para 58% de opacidade,
+       54% de brilho e 72% de saturação em "foco-historia".
+       Em tela pequena isso fica escuro demais.
+
+       Mantemos o efeito narrativo, mas muito mais suave.
+    */
+    #sinuca.foco-historia .mesa-container {
+        opacity: 0.92;
+        filter: brightness(0.90) saturate(0.96);
+        transform: scale(0.985);
+    }
+
+    /*
+       Cores-base explícitas. Os gradientes principais
+       continuam vindo do mesa.css; estes valores são
+       fallback para navegadores móveis que simplificam
+       gradientes durante composição gráfica.
+    */
+    .mesa {
+        background-color: #291733;
+    }
+
+    .feltro {
+        background-color: #104944;
+    }
+
+    .cacapa {
+        background-color: #010101;
+    }
+
+    /*
+       O efeito de vidro funciona em Chrome/Samsung Internet
+       com prefixo. Se não existir suporte, o bloco seguinte
+       fornece um fundo sólido equivalente.
+    */
+    .historia-card {
+        -webkit-backdrop-filter: blur(9px);
+        backdrop-filter: blur(9px);
+    }
+
+    /* Botões continuam com aparência própria do site. */
+    button,
+    #btnComecar,
+    .btn-cap2,
+    .btn-cap10 {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    /*
+       Não deixa o navegador inserir realce azul/cinza em
+       elementos tocáveis durante a experiência.
+    */
+    button,
+    .bola,
+    .bola-branca,
+    .bola-proxima {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* =====================================================
+   FALLBACK PARA BACKDROP-FILTER
+===================================================== */
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .historia-card {
+        background-color: rgba(19, 10, 27, 0.88);
+    }
+}
+
+/* =====================================================
+   CORES FORÇADAS / ACESSIBILIDADE DO SISTEMA
+===================================================== */
+
+@media (forced-colors: active) {
+    #inicio,
+    #app,
+    #sinuca,
+    .mesa,
+    .feltro,
+    .bola,
+    .cacapa {
+        forced-color-adjust: none;
+    }
+}
