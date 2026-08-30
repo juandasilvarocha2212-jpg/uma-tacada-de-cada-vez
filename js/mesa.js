@@ -293,6 +293,10 @@ export function criarMesa() {
 
     /* =====================================================
        POSIÇÃO ALEATÓRIA
+
+       CORREÇÃO:
+       impede que alguma bola seja colocada
+       em cima da bola branca no celular.
     ===================================================== */
 
     function sortearPosicao(
@@ -300,15 +304,59 @@ export function criarMesa() {
         usados
     ) {
 
+        const ehCelular =
+            refs.feltro.clientWidth < 600;
+
+
+        const tamanhoBola =
+            refs.bolaBranca.offsetWidth ||
+            31;
+
+
+        /*
+           Distância física suficiente para
+           as bordas das bolas não se encostarem.
+        */
+
+        const distanciaSemSobrepor =
+            tamanhoBola + 6;
+
+
+        /*
+           Mantemos a distância visual original.
+        */
+
         const distanciaMinima =
-            refs.feltro.clientWidth < 600
-                ? 43
+            ehCelular
+                ? Math.max(
+                    43,
+                    distanciaSemSobrepor
+                )
                 : 66;
 
 
+        let melhorPonto =
+            null;
+
+
+        let melhorDistancia =
+            -Infinity;
+
+
+        const totalTentativas =
+            ehCelular
+                ? 400
+                : 200;
+
+
+        /*
+           Primeiro tentamos respeitar exatamente
+           a região original daquela bola.
+        */
+
         for (
             let tentativa = 0;
-            tentativa < 100;
+            tentativa < totalTentativas;
             tentativa++
         ) {
 
@@ -328,14 +376,130 @@ export function criarMesa() {
                 );
 
 
+            let menorDistancia =
+                Infinity;
+
+
+            usados.forEach(
+                outro => {
+
+                    const d =
+                        distancia(
+                            ponto,
+                            outro
+                        );
+
+
+                    if (
+                        d <
+                        menorDistancia
+                    ) {
+
+                        menorDistancia =
+                            d;
+
+                    }
+
+                }
+            );
+
+
+            /*
+               Posição ideal.
+            */
+
+            if (
+                menorDistancia >=
+                distanciaMinima
+            ) {
+
+                return ponto;
+
+            }
+
+
+            /*
+               Guarda a melhor alternativa
+               encontrada naquela região.
+            */
+
+            if (
+                menorDistancia >
+                melhorDistancia
+            ) {
+
+                melhorDistancia =
+                    menorDistancia;
+
+
+                melhorPonto =
+                    ponto;
+
+            }
+        }
+
+
+        /*
+           Caso não tenha alcançado os 43 px,
+           ainda podemos usar a melhor posição
+           se as bolas estiverem fisicamente
+           separadas.
+        */
+
+        if (
+            melhorPonto &&
+            melhorDistancia >=
+            distanciaSemSobrepor
+        ) {
+
+            return melhorPonto;
+
+        }
+
+
+        /*
+           Se a região original estiver realmente
+           apertada, procuramos um local livre no
+           restante do feltro.
+
+           Isso evita completamente o antigo
+           comportamento de simplesmente colocar
+           a bola no centro da região mesmo se
+           outra bola já estivesse ali.
+        */
+
+        for (
+            let tentativa = 0;
+            tentativa < 500;
+            tentativa++
+        ) {
+
+            const ponto =
+                percentual(
+
+                    randomEntre(
+                        12,
+                        88
+                    ),
+
+                    randomEntre(
+                        16,
+                        88
+                    )
+
+                );
+
+
             const livre =
                 usados.every(
 
                     outro =>
+
                         distancia(
                             ponto,
                             outro
-                        ) >= distanciaMinima
+                        ) >=
+                        distanciaMinima
 
                 );
 
@@ -350,19 +514,86 @@ export function criarMesa() {
         }
 
 
-        return percentual(
+        /*
+           Último plano:
+           percorre uma grade e escolhe o ponto
+           que estiver mais distante das outras
+           bolas.
+        */
 
-            (
-                config.minX +
-                config.maxX
-            ) / 2,
+        let pontoMaisSeguro =
+            null;
 
-            (
-                config.minY +
-                config.maxY
-            ) / 2
 
-        );
+        let maiorDistancia =
+            -Infinity;
+
+
+        for (
+            let x = 14;
+            x <= 86;
+            x += 4
+        ) {
+
+            for (
+                let y = 18;
+                y <= 86;
+                y += 4
+            ) {
+
+                const ponto =
+                    percentual(
+                        x,
+                        y
+                    );
+
+
+                let menorDistancia =
+                    Infinity;
+
+
+                usados.forEach(
+                    outro => {
+
+                        const d =
+                            distancia(
+                                ponto,
+                                outro
+                            );
+
+
+                        if (
+                            d <
+                            menorDistancia
+                        ) {
+
+                            menorDistancia =
+                                d;
+
+                        }
+
+                    }
+                );
+
+
+                if (
+                    menorDistancia >
+                    maiorDistancia
+                ) {
+
+                    maiorDistancia =
+                        menorDistancia;
+
+
+                    pontoMaisSeguro =
+                        ponto;
+
+                }
+            }
+        }
+
+
+        return pontoMaisSeguro;
     }
 
 
@@ -466,6 +697,7 @@ export function criarMesa() {
                 ) {
 
                     return;
+
                 }
 
 
@@ -762,6 +994,14 @@ export function criarMesa() {
             branca
         );
 
+
+        /*
+           A posição da bola 1 e da branca
+           já entram como reservadas.
+
+           Nenhuma outra bola poderá ocupar
+           esses pontos.
+        */
 
         posicionarBolasSecundarias(
             [
@@ -1933,13 +2173,11 @@ export function criarMesa() {
                             refs.bola1.style.opacity =
 
                                 `${
-
                                     limitar(
                                         opacidade,
                                         0,
                                         1
                                     )
-
                                 }`;
 
 
