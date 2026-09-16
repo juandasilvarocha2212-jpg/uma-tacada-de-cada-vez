@@ -1,4 +1,4 @@
-﻿import { esperar } from "./utilidades.js";
+import { esperar } from "./utilidades.js";
 
 import { criarMesa } from "./mesa.js";
 
@@ -7,7 +7,7 @@ import { criarMusica } from "./musica.js";
 import {
     configurarContadorNamoro,
     configurarRevisitarCapitulos
-} from "./revisitar.js?v=9";
+} from "./revisitar.js?v=10";
 
 import { iniciarCapitulo1 } from "./capitulos/capitulo1.js";
 import { iniciarCapitulo2 } from "./capitulos/capitulo2.js";
@@ -40,7 +40,7 @@ async function carregarHTML(
     ) {
 
         throw new Error(
-            `NÃ£o foi possÃ­vel carregar ${caminho}`
+            `Não foi possível carregar ${caminho}`
         );
 
     }
@@ -77,7 +77,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CARREGAR CAPÃTULOS
+       CARREGAR CAPÍTULOS
     ================================================= */
 
     const [
@@ -162,7 +162,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       MÃšSICA
+       MÚSICA
     ================================================= */
 
     const musicaApi =
@@ -170,7 +170,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CAPÃTULO X
+       CAPÍTULO X
     ================================================= */
 
     const capitulo10 =
@@ -181,10 +181,10 @@ async function iniciarSite() {
 
 
     /*
-        Sempre que o CapÃ­tulo X for ativado:
+        Sempre que o Capítulo X for ativado:
 
         Foi Assim desaparece
-        e Giz comeÃ§a.
+        e Giz começa.
     */
 
     function ativarCapitulo10() {
@@ -197,7 +197,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CAPÃTULO IX
+       CAPÍTULO IX
     ================================================= */
 
     const capitulo9 =
@@ -211,10 +211,10 @@ async function iniciarSite() {
 
 
     /*
-        Sempre que o CapÃ­tulo IX for ativado:
+        Sempre que o Capítulo IX for ativado:
 
         instrumental desaparece
-        e Foi Assim comeÃ§a.
+        e Foi Assim começa.
     */
 
     function ativarCapitulo9() {
@@ -227,7 +227,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CAPÃTULO VIII
+       CAPÍTULO VIII
     ================================================= */
 
     const capitulo8 =
@@ -241,7 +241,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CAPÃTULO VII
+       CAPÍTULO VII
     ================================================= */
 
     const capitulo7 =
@@ -255,7 +255,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CAPÃTULO VI
+       CAPÍTULO VI
     ================================================= */
 
     const capitulo6 =
@@ -269,7 +269,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CAPÃTULO V
+       CAPÍTULO V
     ================================================= */
 
     const capitulo5 =
@@ -283,7 +283,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CAPÃTULO IV
+       CAPÍTULO IV
     ================================================= */
 
     const capitulo4 =
@@ -297,7 +297,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CAPÃTULO III
+       CAPÍTULO III
     ================================================= */
 
     const capitulo3 =
@@ -311,7 +311,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CAPÃTULO II
+       CAPÍTULO II
     ================================================= */
 
     const capitulo2 =
@@ -325,7 +325,7 @@ async function iniciarSite() {
 
 
     /* =================================================
-       CAPÃTULO I
+       CAPÍTULO I
     ================================================= */
 
     iniciarCapitulo1(
@@ -378,8 +378,8 @@ async function iniciarSite() {
             No modo de teste o navegador pode
             bloquear autoplay.
 
-            EntÃ£o a mÃºsica comeÃ§a no primeiro
-            toque/click na pÃ¡gina.
+            Então a música começa no primeiro
+            toque/click na página.
         */
 
         document.addEventListener(
@@ -389,8 +389,8 @@ async function iniciarSite() {
             () => {
 
                 /*
-                    CapÃ­tulo I
-                    CapÃ­tulo II
+                    Capítulo I
+                    Capítulo II
                 */
 
                 if (
@@ -405,7 +405,7 @@ async function iniciarSite() {
 
 
                 /*
-                    CapÃ­tulo IX
+                    Capítulo IX
                 */
 
                 if (
@@ -419,7 +419,7 @@ async function iniciarSite() {
 
 
                 /*
-                    CapÃ­tulo X
+                    Capítulo X
                 */
 
                 if (
@@ -433,7 +433,7 @@ async function iniciarSite() {
 
 
                 /*
-                    CapÃ­tulos anteriores
+                    Capítulos anteriores
                 */
 
                 musicaApi.iniciarInstrumental();
@@ -448,7 +448,7 @@ async function iniciarSite() {
 
 
         /* =================================================
-           CAPÃTULO 1
+           CAPÍTULO 1
         ================================================= */
 
         if (
@@ -481,7 +481,7 @@ async function iniciarSite() {
 
 
         /* =================================================
-           CAPÃTULO 2
+           CAPÍTULO 2
         ================================================= */
 
         if (
@@ -512,7 +512,7 @@ async function iniciarSite() {
 
 
         /* =================================================
-           CAPÃTULO 3
+           CAPÍTULO 3
         ================================================= */
 
         if (
@@ -543,7 +543,7 @@ async function iniciarSite() {
 
 
         /* =================================================
-           CAPÃTULO 4
+           CAPÍTULO 4
         ================================================= */
 
         if (
@@ -574,7 +574,7 @@ async function iniciarSite() {
 
 
         /* =================================================
-           CAPÃTULO 5
+           CAPÍTULO 5
         ================================================= */
 
         if (
@@ -605,7 +605,7 @@ async function iniciarSite() {
 
 
         /* =================================================
-           CAPÃTULO 6
+           CAPÍTULO 6
         ================================================= */
 
         if (
@@ -636,7 +636,7 @@ async function iniciarSite() {
 
 
         /* =================================================
-           CAPÃTULO 7
+           CAPÍTULO 7
         ================================================= */
 
         if (
@@ -667,7 +667,7 @@ async function iniciarSite() {
 
 
         /* =================================================
-           CAPÃTULO 8
+           CAPÍTULO 8
         ================================================= */
 
         if (
@@ -698,7 +698,7 @@ async function iniciarSite() {
 
 
         /* =================================================
-           CAPÃTULO 9
+           CAPÍTULO 9
         ================================================= */
 
         if (
@@ -729,7 +729,7 @@ async function iniciarSite() {
 
 
         /* =================================================
-           CAPÃTULO 10
+           CAPÍTULO 10
         ================================================= */
 
         if (
@@ -760,7 +760,7 @@ async function iniciarSite() {
 
 
         console.warn(
-            `CapÃ­tulo de teste "${capTeste}" nÃ£o existe.`
+            `Capítulo de teste "${capTeste}" não existe.`
         );
 
 
@@ -782,11 +782,11 @@ async function iniciarSite() {
 
             /*
                 ==========================================
-                COMEÃ‡AR INSTRUMENTAL
+                COMEÇAR INSTRUMENTAL
                 ==========================================
 
                 O play acontece diretamente no clique
-                para nÃ£o ser bloqueado pelo navegador.
+                para não ser bloqueado pelo navegador.
 
                 O musica.js cuida do fade:
 
@@ -867,7 +867,7 @@ async function iniciarSite() {
 
 
 /* =====================================================
-   PREPARAR MESA PARA REVISITAR CAPÃTULOS
+   PREPARAR MESA PARA REVISITAR CAPÍTULOS
 ===================================================== */
 
 async function prepararMesaParaCapitulo(
@@ -1199,7 +1199,7 @@ iniciarSite().catch(
 
             <div class="erro-carregamento">
 
-                NÃ£o foi possÃ­vel carregar o site.
+                Não foi possível carregar o site.
 
                 <br><br>
 
@@ -1217,4 +1217,3 @@ iniciarSite().catch(
 
     }
 );
-
