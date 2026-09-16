@@ -80,8 +80,7 @@ export function configurarContadorNamoro() {
 
     function atualizar() {
 
-        contador.textContent =
-            formatarTempo(
+        contador.innerHTML = formatarTempo(
                 Date.now() - INICIO_NAMORO.getTime()
             );
     }
