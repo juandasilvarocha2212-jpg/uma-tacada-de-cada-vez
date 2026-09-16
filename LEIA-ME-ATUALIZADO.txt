@@ -1,0 +1,37 @@
+UMA TACADA DE CADA VEZ - PACOTE COMPLETO ATUALIZADO
+
+Este pacote contem o site completo do repositorio:
+juandasilvarocha2212-jpg/uma-tacada-de-cada-vez
+
+ATUALIZACOES INCLUIDAS
+
+1. Contador de namoro na tela inicial.
+   Data inicial: 05/09/2026 as 23:55, no horario de Sao Paulo.
+
+2. Botao "Revisitar capitulos" na tela inicial.
+   Ele permite abrir diretamente os capitulos I a X.
+
+3. Botao flutuante "Capitulos" durante a experiencia.
+   Ele permite voltar ao menu e escolher outra memoria.
+
+COMO USAR
+
+Para testar no computador, abra a pasta do projeto no VS Code e use Live Server.
+O site precisa rodar em servidor local porque carrega os capitulos HTML com fetch().
+
+Para publicar no GitHub Pages:
+
+1. Extraia este ZIP.
+2. Copie todos os arquivos para dentro do repositorio do site.
+3. Confirme a substituicao dos arquivos existentes.
+4. Envie para o GitHub com commit e push.
+
+Arquivos adicionados ou alterados nesta versao:
+
+- index.html
+- css/revisitar.css
+- js/main.js
+- js/revisitar.js
+- LEIA-ME-ATUALIZADO.txt
+
+O restante do site foi preservado.

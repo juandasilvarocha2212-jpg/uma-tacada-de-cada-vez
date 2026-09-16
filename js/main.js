@@ -4,6 +4,11 @@ import { criarMesa } from "./mesa.js";
 
 import { criarMusica } from "./musica.js";
 
+import {
+    configurarContadorNamoro,
+    configurarRevisitarCapitulos
+} from "./revisitar.js";
+
 import { iniciarCapitulo1 } from "./capitulos/capitulo1.js";
 import { iniciarCapitulo2 } from "./capitulos/capitulo2.js";
 import { iniciarCapitulo3 } from "./capitulos/capitulo3.js";
@@ -67,6 +72,8 @@ async function iniciarSite() {
         document.getElementById(
             "btnComecar"
         );
+
+    configurarContadorNamoro();
 
 
     /* =================================================
@@ -330,6 +337,10 @@ async function iniciarSite() {
     );
 
 
+    const revisitarApi =
+        configurarRevisitarCapitulos();
+
+
     /* =====================================================
        MODO DE TESTE
     ===================================================== */
@@ -346,54 +357,20 @@ async function iniciarSite() {
         );
 
 
+    const abrirDireto =
+        parametros.get(
+            "abrir"
+        ) === "1";
+
+
     if (
         capTeste
     ) {
 
-        abertura.style.display =
-            "none";
-
-
-        mesaApi.refs.sinuca.classList.add(
-            "ativo"
-        );
-
-
-        mesaApi.refs.sinuca.setAttribute(
-            "aria-hidden",
-            "false"
-        );
-
-
-        await new Promise(
-            resolve =>
-                requestAnimationFrame(
-                    resolve
-                )
-        );
-
-
-        mesaApi.prepararPrimeiraTacada();
-
-
-        mesaApi.refs.linhaMira.classList.remove(
-            "visivel"
-        );
-
-
-        mesaApi.refs.taco.classList.remove(
-            "visivel"
-        );
-
-
-        const instrucaoTacada =
-            document.getElementById(
-                "instrucaoTacada"
-            );
-
-
-        instrucaoTacada.classList.remove(
-            "ativo"
+        await prepararMesaParaCapitulo(
+            abertura,
+            mesaApi,
+            revisitarApi
         );
 
 
@@ -410,6 +387,22 @@ async function iniciarSite() {
             "pointerdown",
 
             () => {
+
+                /*
+                    Capítulo I
+                    Capítulo II
+                */
+
+                if (
+                    capTeste === "1" ||
+                    capTeste === "2"
+                ) {
+
+                    musicaApi.iniciarInstrumental();
+
+                    return;
+                }
+
 
                 /*
                     Capítulo IX
@@ -455,6 +448,70 @@ async function iniciarSite() {
 
 
         /* =================================================
+           CAPÍTULO 1
+        ================================================= */
+
+        if (
+            capTeste === "1"
+        ) {
+
+            mesaApi.refs.linhaMira.classList.add(
+                "visivel"
+            );
+
+
+            mesaApi.refs.taco.classList.add(
+                "visivel"
+            );
+
+
+            const instrucaoTacada =
+                document.getElementById(
+                    "instrucaoTacada"
+                );
+
+
+            instrucaoTacada.classList.add(
+                "ativo"
+            );
+
+
+            return;
+        }
+
+
+        /* =================================================
+           CAPÍTULO 2
+        ================================================= */
+
+        if (
+            capTeste === "2"
+        ) {
+
+            prepararBolasParaTeste(
+                mesaApi,
+                2
+            );
+
+
+            if (
+                abrirDireto
+            ) {
+
+                await esperar(
+                    120
+                );
+
+
+                await capitulo2.abrir();
+            }
+
+
+            return;
+        }
+
+
+        /* =================================================
            CAPÍTULO 3
         ================================================= */
 
@@ -469,6 +526,16 @@ async function iniciarSite() {
 
 
             capitulo3.ativar();
+
+
+            if (
+                abrirDireto
+            ) {
+
+                await abrirBolaDaRevisita(
+                    mesaApi.refs.bola3
+                );
+            }
 
 
             return;
@@ -492,6 +559,16 @@ async function iniciarSite() {
             capitulo4.ativar();
 
 
+            if (
+                abrirDireto
+            ) {
+
+                await abrirBolaDaRevisita(
+                    mesaApi.refs.bola4
+                );
+            }
+
+
             return;
         }
 
@@ -511,6 +588,16 @@ async function iniciarSite() {
 
 
             capitulo5.ativar();
+
+
+            if (
+                abrirDireto
+            ) {
+
+                await abrirBolaDaRevisita(
+                    mesaApi.refs.bola5
+                );
+            }
 
 
             return;
@@ -534,6 +621,16 @@ async function iniciarSite() {
             capitulo6.ativar();
 
 
+            if (
+                abrirDireto
+            ) {
+
+                await abrirBolaDaRevisita(
+                    mesaApi.refs.bola6
+                );
+            }
+
+
             return;
         }
 
@@ -553,6 +650,16 @@ async function iniciarSite() {
 
 
             capitulo7.ativar();
+
+
+            if (
+                abrirDireto
+            ) {
+
+                await abrirBolaDaRevisita(
+                    mesaApi.refs.bola7
+                );
+            }
 
 
             return;
@@ -576,6 +683,16 @@ async function iniciarSite() {
             capitulo8.ativar();
 
 
+            if (
+                abrirDireto
+            ) {
+
+                await abrirBolaDaRevisita(
+                    mesaApi.refs.bola8
+                );
+            }
+
+
             return;
         }
 
@@ -597,6 +714,16 @@ async function iniciarSite() {
             capitulo9.ativar();
 
 
+            if (
+                abrirDireto
+            ) {
+
+                await abrirBolaDaRevisita(
+                    mesaApi.refs.bola9
+                );
+            }
+
+
             return;
         }
 
@@ -616,6 +743,16 @@ async function iniciarSite() {
 
 
             capitulo10.ativar();
+
+
+            if (
+                abrirDireto
+            ) {
+
+                await abrirBolaDaRevisita(
+                    mesaApi.refs.bola10
+                );
+            }
 
 
             return;
@@ -680,6 +817,9 @@ async function iniciarSite() {
             );
 
 
+            revisitarApi.mostrarBotaoFlutuante();
+
+
             await new Promise(
                 resolve =>
                     requestAnimationFrame(
@@ -723,6 +863,80 @@ async function iniciarSite() {
 
         }
     );
+}
+
+
+/* =====================================================
+   PREPARAR MESA PARA REVISITAR CAPÍTULOS
+===================================================== */
+
+async function prepararMesaParaCapitulo(
+    abertura,
+    mesaApi,
+    revisitarApi
+) {
+
+    abertura.style.display =
+        "none";
+
+
+    revisitarApi.mostrarBotaoFlutuante();
+
+
+    mesaApi.refs.sinuca.classList.add(
+        "ativo"
+    );
+
+
+    mesaApi.refs.sinuca.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    await new Promise(
+        resolve =>
+            requestAnimationFrame(
+                resolve
+            )
+    );
+
+
+    mesaApi.prepararPrimeiraTacada();
+
+
+    mesaApi.refs.linhaMira.classList.remove(
+        "visivel"
+    );
+
+
+    mesaApi.refs.taco.classList.remove(
+        "visivel"
+    );
+
+
+    const instrucaoTacada =
+        document.getElementById(
+            "instrucaoTacada"
+        );
+
+
+    instrucaoTacada.classList.remove(
+        "ativo"
+    );
+}
+
+
+async function abrirBolaDaRevisita(
+    bola
+) {
+
+    await esperar(
+        120
+    );
+
+
+    bola.click();
 }
 
 

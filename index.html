@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/capitulo8.css">
     <link rel="stylesheet" href="css/capitulo9.css">
     <link rel="stylesheet" href="css/capitulo10.css">
+    <link rel="stylesheet" href="css/revisitar.css">
 
     <!-- Sempre por último: compatibilidade específica para celular -->
     <link rel="stylesheet" href="css/mobile.css">
@@ -39,14 +40,77 @@
 
             <p class="subtitulo">Nossa história.</p>
 
+            <div class="contador-namoro" aria-live="polite">
+                <span>Estamos juntos há</span>
+                <strong id="contadorNamoro">carregando...</strong>
+                <small>desde 05/09/2026 às 23:55</small>
+            </div>
+
             <div class="separador"></div>
 
             <p class="mensagem-volume">🔊 Aumente o volume</p>
 
-            <button id="btnComecar" type="button">
-                Começar nossa história
-            </button>
+            <div class="acoes-abertura">
+                <button id="btnComecar" type="button">
+                    Começar nossa história
+                </button>
+
+                <button id="btnRevisitar" type="button">
+                    Revisitar capítulos
+                </button>
+            </div>
         </section>
+
+        <button
+            id="btnCapitulosFlutuante"
+            class="btn-capitulos-flutuante"
+            type="button"
+            hidden
+        >
+            Capítulos
+        </button>
+
+        <div
+            id="menuCapitulos"
+            class="menu-capitulos"
+            aria-hidden="true"
+            hidden
+        >
+            <div
+                class="menu-capitulos-conteudo"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="tituloMenuCapitulos"
+            >
+                <button
+                    id="btnFecharCapitulos"
+                    class="btn-fechar-capitulos"
+                    type="button"
+                    aria-label="Fechar menu de capítulos"
+                >
+                    ×
+                </button>
+
+                <p class="menu-capitulos-etiqueta">REVISITAR MEMÓRIAS</p>
+
+                <h2 id="tituloMenuCapitulos">
+                    Escolha um capítulo
+                </h2>
+
+                <div class="grade-capitulos" aria-label="Capítulos disponíveis">
+                    <button type="button" data-capitulo="1">I</button>
+                    <button type="button" data-capitulo="2">II</button>
+                    <button type="button" data-capitulo="3">III</button>
+                    <button type="button" data-capitulo="4">IV</button>
+                    <button type="button" data-capitulo="5">V</button>
+                    <button type="button" data-capitulo="6">VI</button>
+                    <button type="button" data-capitulo="7">VII</button>
+                    <button type="button" data-capitulo="8">VIII</button>
+                    <button type="button" data-capitulo="9">IX</button>
+                    <button type="button" data-capitulo="10">X</button>
+                </div>
+            </div>
+        </div>
 
         <div id="app"></div>
     </main>
