@@ -53,9 +53,9 @@ function formatarTempo(
 
     return [
         `${dias} ${plural(dias, "dia", "dias")}`,
-        `${horas} ${plural(horas, "hora", "horas")}`,
-        `${minutos} ${plural(minutos, "minuto", "minutos")}`,
-        `${segundos} ${plural(segundos, "segundo", "segundos")}`
+        `${String(horas).padStart(2, "0")}h`,
+        `${String(minutos).padStart(2, "0")}min`,
+        `${String(segundos).padStart(2, "0")}s`
     ].join(
         " · "
     );

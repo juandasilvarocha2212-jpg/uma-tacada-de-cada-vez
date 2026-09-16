@@ -7,7 +7,7 @@ import { criarMusica } from "./musica.js";
 import {
     configurarContadorNamoro,
     configurarRevisitarCapitulos
-} from "./revisitar.js?v=10";
+} from "./revisitar.js?v=11";
 
 import { iniciarCapitulo1 } from "./capitulos/capitulo1.js";
 import { iniciarCapitulo2 } from "./capitulos/capitulo2.js";

@@ -23,6 +23,9 @@
     line-height: 1.12;
     color: #ffffff;
     text-shadow: 0 0 28px rgba(168, 101, 230, 0.26);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+    min-height: 2.2em;
 }
 
 .acoes-abertura {
